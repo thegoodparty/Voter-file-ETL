@@ -25,7 +25,7 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
-async function getModelFields() {
+async function getModelFields(modelName: string) {
   const schemaPath = join(__dirname, "prisma/schema.prisma");
   const schema = readFileSync(schemaPath, "utf-8");
   const dmmf = await getDMMF({ datamodel: schema });
@@ -35,6 +35,7 @@ async function getModelFields() {
   let fieldTypes: { [modelName: string]: { [fieldName: string]: string } } = {};
 
   models.forEach((model) => {
+    if (model.name !== modelName) return;
     modelFields[model.name] = model.fields.map((field) => field.name);
     fieldTypes[model.name] = model.fields.reduce((acc: any, field) => {
       acc[field.name] = field.type;
@@ -126,7 +127,7 @@ async function processVoterFile(s3Key: string, state: string) {
     .getObject({ Bucket: s3Bucket, Key: s3Key })
     .createReadStream();
 
-  const { modelFields, fieldTypes } = await getModelFields();
+  const { modelFields, fieldTypes } = await getModelFields(modelName);
 
   const processStream = async (row: any) => {
     const keys = Object.keys(row);
