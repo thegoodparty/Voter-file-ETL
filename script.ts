@@ -50,7 +50,8 @@ async function processBatch(rows: any[]) {
 
   let response;
   try {
-    response = await prisma.voter.createMany({
+    // @ts-ignore
+    response = await prisma[modelName].createMany({
       data: rows,
       skipDuplicates: true,
     });
@@ -107,17 +108,20 @@ async function main() {
       console.log(
         `processing file number ${fileNumber} filename ${files[fileNumber]}`
       );
-      await processVoterFile(file);
+      // extract 'AK' from 'VM2Uniform/VM2Uniform--AK--2024-01-29.tab'
+      const state = file.split("--")[1];
+      await processVoterFile(file, state);
     } catch (error) {
       console.log("uncaught error adding voter file", error);
     }
   }
 }
 
-async function processVoterFile(s3Key: string) {
+async function processVoterFile(s3Key: string, state: string) {
   let buffer: any[] = [];
   const batchSize = 1000;
   let batchPromises: any[] = [];
+  const modelName = `Voter${state}`;
 
   const s3Stream = s3
     .getObject({ Bucket: s3Bucket, Key: s3Key })
@@ -134,14 +138,15 @@ async function processVoterFile(s3Key: string) {
         continue;
       }
 
-      if (fieldTypes.Voter[key] === "Int") {
+      if (fieldTypes[modelName][key] === "Int") {
         row[key] = Number(row[key]);
       }
-      if (fieldTypes.Voter[key] === "DateTime") {
+      if (fieldTypes[modelName][key] === "DateTime") {
         row[key] = new Date(row[key]);
       }
     }
-
+    // sleep for 10ms to avoid rate limiting
+    await new Promise((resolve) => setTimeout(resolve, 10));
     buffer.push(row);
     if (buffer.length >= batchSize) {
       batchPromises.push(processBatch(buffer.slice()));
@@ -165,7 +170,7 @@ async function processVoterFile(s3Key: string) {
       csv({
         separator: "\t",
         mapHeaders: ({ header, index }) => {
-          if (modelFields.Voter.includes(header) === false) {
+          if (modelFields[modelName].includes(header) === false) {
             // remove any columns that are not in the schema
             return null;
           } else {
