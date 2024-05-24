@@ -144,8 +144,8 @@ async function processVoterFile(s3Key: string, state: string) {
         row[key] = new Date(row[key]);
       }
     }
-    // sleep for 10ms to avoid rate limiting
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    // sleep for 1ms to avoid bursting db iops
+    await new Promise((resolve) => setTimeout(resolve, 1));
     buffer.push(row);
     if (buffer.length >= batchSize) {
       batchPromises.push(processBatch(buffer.slice(), modelName));
