@@ -46,12 +46,12 @@ async function getModelFields() {
 }
 
 async function processBatch(rows: any[], modelName: string) {
-  console.log(`Writing ${rows.length} rows to the database...`);
-
+  console.log(`Writing ${rows.length} rows to ${modelName}...`);
   let response;
+  const modelLower = modelName.replace("Voter", "voter");
   try {
     // @ts-ignore
-    response = await prisma[modelName].createMany({
+    response = await prisma[modelLower].createMany({
       data: rows,
       skipDuplicates: true,
     });
