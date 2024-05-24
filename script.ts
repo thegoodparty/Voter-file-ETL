@@ -45,7 +45,7 @@ async function getModelFields() {
   return { modelFields, fieldTypes };
 }
 
-async function processBatch(rows: any[]) {
+async function processBatch(rows: any[], modelName: string) {
   console.log(`Writing ${rows.length} rows to the database...`);
 
   let response;
@@ -108,7 +108,6 @@ async function main() {
       console.log(
         `processing file number ${fileNumber} filename ${files[fileNumber]}`
       );
-      // extract 'AK' from 'VM2Uniform/VM2Uniform--AK--2024-01-29.tab'
       const state = file.split("--")[1];
       await processVoterFile(file, state);
     } catch (error) {
@@ -149,14 +148,14 @@ async function processVoterFile(s3Key: string, state: string) {
     await new Promise((resolve) => setTimeout(resolve, 10));
     buffer.push(row);
     if (buffer.length >= batchSize) {
-      batchPromises.push(processBatch(buffer.slice()));
+      batchPromises.push(processBatch(buffer.slice(), modelName));
       buffer = [];
     }
   };
 
   const finishProcessing = async () => {
     if (buffer.length > 0) {
-      batchPromises.push(processBatch(buffer));
+      batchPromises.push(processBatch(buffer, modelName));
     }
     await Promise.all(batchPromises);
     console.log("CSV file successfully processed");
