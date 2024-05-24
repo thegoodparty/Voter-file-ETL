@@ -46,9 +46,9 @@ async function getModelFields() {
 }
 
 async function processBatch(rows: any[], modelName: string) {
-  console.log(`Writing ${rows.length} rows to ${modelName}...`);
   let response;
   const modelLower = modelName.replace("Voter", "voter");
+  console.log(`Writing ${rows.length} rows to ${modelLower}...`);
   try {
     // @ts-ignore
     response = await prisma[modelLower].createMany({
