@@ -8,10 +8,12 @@
     "@prisma/adapter-pg": "^5.14.0",
     "@prisma/client": "5.14.0",
     "@prisma/sdk": "^4.0.0",
+    "@types/ngeohash": "^0.6.8",
     "@types/node": "20.12.11",
     "aws-sdk": "^2.1627.0",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
+    "ngeohash": "^0.6.3",
     "pg": "^8.11.5"
   },
   "devDependencies": {

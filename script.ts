@@ -7,6 +7,7 @@ import { readFileSync } from "fs";
 import AWS from "aws-sdk";
 import csv from "csv-parser";
 import dotenv from "dotenv";
+import geohash from "ngeohash";
 
 dotenv.config();
 
@@ -145,8 +146,16 @@ async function processVoterFile(s3Key: string, state: string) {
         row[key] = new Date(row[key]);
       }
     }
-    // sleep for 1ms to avoid bursting db iops
-    await new Promise((resolve) => setTimeout(resolve, 1));
+    if (row.Residence_Addresses_Latitude && row.Residence_Addresses_Longitude) {
+      const geoHash = geohash.encode(
+        row.Residence_Addresses_Latitude,
+        row.Residence_Addresses_Longitude,
+        8
+      );
+      row["Residence_Addresses_GeoHash"] = geoHash;
+    }
+    // // sleep for 1ms to avoid bursting db iops
+    // await new Promise((resolve) => setTimeout(resolve, 1));
     buffer.push(row);
     if (buffer.length >= batchSize) {
       batchPromises.push(processBatch(buffer.slice(), modelName));
