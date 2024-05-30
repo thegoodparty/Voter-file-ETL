@@ -96,14 +96,18 @@ async function getAllFiles(bucket: string, maxKeys: number) {
 async function main() {
   // Seed the database with the voter files
   let startFile = 0;
+  let endFile = 51;
   let files = [];
   files = await getAllFiles(s3Bucket, 200);
   // only do the first file
-  files = files.slice(0, 1);
-  console.log("files", files);
+  // files = files.slice(0, 1);
+  // console.log("files", files);
   for (let fileNumber = 0; fileNumber < files.length; fileNumber++) {
     if (startFile && startFile > fileNumber) {
       continue;
+    }
+    if (endFile && fileNumber > endFile) {
+      break;
     }
     try {
       const file = files[fileNumber];
