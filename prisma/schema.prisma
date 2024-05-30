@@ -65,6 +65,7 @@ model VoterAL {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -248,6 +249,7 @@ model VoterAL {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -259,23 +261,7 @@ model VoterAL {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 
@@ -337,6 +323,7 @@ model VoterAK {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -520,6 +507,7 @@ model VoterAK {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -531,23 +519,7 @@ model VoterAK {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterAZ {
@@ -608,6 +580,7 @@ model VoterAZ {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -791,6 +764,7 @@ model VoterAZ {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -802,23 +776,7 @@ model VoterAZ {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterAR {
@@ -879,6 +837,7 @@ model VoterAR {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -1062,6 +1021,7 @@ model VoterAR {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -1073,23 +1033,7 @@ model VoterAR {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterCA {
@@ -1150,6 +1094,7 @@ model VoterCA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -1333,6 +1278,7 @@ model VoterCA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -1344,23 +1290,7 @@ model VoterCA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterCO {
@@ -1421,6 +1351,7 @@ model VoterCO {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -1604,6 +1535,7 @@ model VoterCO {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -1615,23 +1547,7 @@ model VoterCO {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterCT {
@@ -1692,6 +1608,7 @@ model VoterCT {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -1875,6 +1792,7 @@ model VoterCT {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -1886,23 +1804,7 @@ model VoterCT {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterDC {
@@ -1963,6 +1865,7 @@ model VoterDC {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -2146,6 +2049,7 @@ model VoterDC {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -2157,23 +2061,7 @@ model VoterDC {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterDE {
@@ -2234,6 +2122,7 @@ model VoterDE {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -2417,6 +2306,7 @@ model VoterDE {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -2428,23 +2318,7 @@ model VoterDE {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterFL {
@@ -2505,6 +2379,7 @@ model VoterFL {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -2688,6 +2563,7 @@ model VoterFL {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -2699,23 +2575,7 @@ model VoterFL {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterGA {
@@ -2776,6 +2636,7 @@ model VoterGA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -2959,6 +2820,7 @@ model VoterGA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -2970,23 +2832,7 @@ model VoterGA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterHI {
@@ -3047,6 +2893,7 @@ model VoterHI {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -3230,6 +3077,7 @@ model VoterHI {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -3241,23 +3089,7 @@ model VoterHI {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterID {
@@ -3318,6 +3150,7 @@ model VoterID {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -3501,6 +3334,7 @@ model VoterID {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -3512,23 +3346,7 @@ model VoterID {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterIL {
@@ -3589,6 +3407,7 @@ model VoterIL {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -3772,6 +3591,7 @@ model VoterIL {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -3783,23 +3603,7 @@ model VoterIL {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterIN {
@@ -3860,6 +3664,7 @@ model VoterIN {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -4043,6 +3848,7 @@ model VoterIN {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -4054,23 +3860,7 @@ model VoterIN {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterIA {
@@ -4131,6 +3921,7 @@ model VoterIA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -4314,6 +4105,7 @@ model VoterIA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -4325,23 +4117,7 @@ model VoterIA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterKS {
@@ -4402,6 +4178,7 @@ model VoterKS {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -4585,6 +4362,7 @@ model VoterKS {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -4596,23 +4374,7 @@ model VoterKS {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterKY {
@@ -4673,6 +4435,7 @@ model VoterKY {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -4856,6 +4619,7 @@ model VoterKY {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -4867,23 +4631,7 @@ model VoterKY {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterLA {
@@ -4944,6 +4692,7 @@ model VoterLA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -5127,6 +4876,7 @@ model VoterLA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -5138,23 +4888,7 @@ model VoterLA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterME {
@@ -5215,6 +4949,7 @@ model VoterME {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -5398,6 +5133,7 @@ model VoterME {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -5409,23 +5145,7 @@ model VoterME {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterMD {
@@ -5486,6 +5206,7 @@ model VoterMD {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -5669,6 +5390,7 @@ model VoterMD {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -5680,23 +5402,7 @@ model VoterMD {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterMA {
@@ -5757,6 +5463,7 @@ model VoterMA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -5940,6 +5647,7 @@ model VoterMA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -5951,23 +5659,7 @@ model VoterMA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterMI {
@@ -6028,6 +5720,7 @@ model VoterMI {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -6211,6 +5904,7 @@ model VoterMI {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -6222,23 +5916,7 @@ model VoterMI {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterMN {
@@ -6299,6 +5977,7 @@ model VoterMN {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -6482,6 +6161,7 @@ model VoterMN {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -6493,23 +6173,7 @@ model VoterMN {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterMS {
@@ -6570,6 +6234,7 @@ model VoterMS {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -6753,6 +6418,7 @@ model VoterMS {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -6764,23 +6430,7 @@ model VoterMS {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterMO {
@@ -6841,6 +6491,7 @@ model VoterMO {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -7024,6 +6675,7 @@ model VoterMO {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -7035,23 +6687,7 @@ model VoterMO {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterMT {
@@ -7112,6 +6748,7 @@ model VoterMT {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -7295,6 +6932,7 @@ model VoterMT {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -7306,23 +6944,7 @@ model VoterMT {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterNE {
@@ -7383,6 +7005,7 @@ model VoterNE {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -7566,6 +7189,7 @@ model VoterNE {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -7577,23 +7201,7 @@ model VoterNE {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterNV {
@@ -7654,6 +7262,7 @@ model VoterNV {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -7837,6 +7446,7 @@ model VoterNV {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -7848,23 +7458,7 @@ model VoterNV {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterNH {
@@ -7925,6 +7519,7 @@ model VoterNH {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -8108,6 +7703,7 @@ model VoterNH {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -8119,23 +7715,7 @@ model VoterNH {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterNJ {
@@ -8196,6 +7776,7 @@ model VoterNJ {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -8379,6 +7960,7 @@ model VoterNJ {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -8390,23 +7972,7 @@ model VoterNJ {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterNM {
@@ -8467,6 +8033,7 @@ model VoterNM {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -8650,6 +8217,7 @@ model VoterNM {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -8661,23 +8229,7 @@ model VoterNM {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterNY {
@@ -8738,6 +8290,7 @@ model VoterNY {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -8921,6 +8474,7 @@ model VoterNY {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -8932,23 +8486,7 @@ model VoterNY {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterNC {
@@ -9009,6 +8547,7 @@ model VoterNC {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -9192,6 +8731,7 @@ model VoterNC {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -9203,23 +8743,7 @@ model VoterNC {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterND {
@@ -9280,6 +8804,7 @@ model VoterND {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -9463,6 +8988,7 @@ model VoterND {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -9474,23 +9000,7 @@ model VoterND {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterOH {
@@ -9551,6 +9061,7 @@ model VoterOH {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -9734,6 +9245,7 @@ model VoterOH {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -9745,23 +9257,7 @@ model VoterOH {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterOK {
@@ -9822,6 +9318,7 @@ model VoterOK {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -10005,6 +9502,7 @@ model VoterOK {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -10016,23 +9514,7 @@ model VoterOK {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterOR {
@@ -10093,6 +9575,7 @@ model VoterOR {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -10276,6 +9759,7 @@ model VoterOR {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -10287,23 +9771,7 @@ model VoterOR {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterPA {
@@ -10364,6 +9832,7 @@ model VoterPA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -10547,6 +10016,7 @@ model VoterPA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -10558,23 +10028,7 @@ model VoterPA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterRI {
@@ -10635,6 +10089,7 @@ model VoterRI {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -10818,6 +10273,7 @@ model VoterRI {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -10829,23 +10285,7 @@ model VoterRI {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterSC {
@@ -10906,6 +10346,7 @@ model VoterSC {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -11089,6 +10530,7 @@ model VoterSC {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -11100,23 +10542,7 @@ model VoterSC {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterSD {
@@ -11177,6 +10603,7 @@ model VoterSD {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -11360,6 +10787,7 @@ model VoterSD {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -11371,23 +10799,7 @@ model VoterSD {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterTN {
@@ -11448,6 +10860,7 @@ model VoterTN {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -11631,6 +11044,7 @@ model VoterTN {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -11642,23 +11056,7 @@ model VoterTN {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterTX {
@@ -11719,6 +11117,7 @@ model VoterTX {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -11902,6 +11301,7 @@ model VoterTX {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -11913,23 +11313,7 @@ model VoterTX {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterUT {
@@ -11990,6 +11374,7 @@ model VoterUT {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -12173,6 +11558,7 @@ model VoterUT {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -12184,23 +11570,7 @@ model VoterUT {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterVT {
@@ -12261,6 +11631,7 @@ model VoterVT {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -12444,6 +11815,7 @@ model VoterVT {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -12455,23 +11827,7 @@ model VoterVT {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterVA {
@@ -12532,6 +11888,7 @@ model VoterVA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -12715,6 +12072,7 @@ model VoterVA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -12726,23 +12084,7 @@ model VoterVA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterWA {
@@ -12803,6 +12145,7 @@ model VoterWA {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -12986,6 +12329,7 @@ model VoterWA {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -12997,23 +12341,7 @@ model VoterWA {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterWV {
@@ -13074,6 +12402,7 @@ model VoterWV {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -13257,6 +12586,7 @@ model VoterWV {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -13268,23 +12598,7 @@ model VoterWV {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterWI {
@@ -13345,6 +12659,7 @@ model VoterWI {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -13528,6 +12843,7 @@ model VoterWI {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -13539,23 +12855,7 @@ model VoterWI {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
 
 model VoterWY {
@@ -13616,6 +12916,7 @@ model VoterWY {
   Mailing_HHGender_Description  String?  @db.Text()  // Cannot Determine,Female Only Household,Male Only Household,Mixed Gender Household
   Mailing_HHParties_Description  String?  @db.Text()  // Same as Residence HH Parties calculation but based on those sharing the same mailing address rather than those sharing the same residence address
   Voters_Age  String?  @db.Text()  // Age is based on current year minus year of birth.
+  Voters_Gender String?  @db.Text()  //"M", "F" or blank.
   DateConfidence_Description  String?  @db.Text()  // Identifies whether date is complete or is partial and if the latter, which elements are correct.
   Parties_Description  String?  @db.Text()  // Full name of official party. See Parties tab.
   VoterParties_Change_Changed_Party  String?  @db.Text()  // Voter changed party affiliation between Dem and Rep
@@ -13799,6 +13100,7 @@ model VoterWY {
   @@index([Voters_Active])
   @@index([MilitaryStatus_Description])
   @@index([Voters_Age])
+  @@index([Voters_Gender])
   @@index([Parties_Description])
   @@index([VoterParties_Change_Changed_Party])
   @@index([Voters_CalculatedRegDate])
@@ -13810,21 +13112,5 @@ model VoterWY {
   @@index([Voters_VotingPerformanceEvenYearPrimary])
   @@index([Voters_VotingPerformanceEvenYearGeneralAndPrimary])
   @@index([Voters_VotingPerformanceMinorElection])
-  @@index([General_2022])
-  @@index([Primary_2022])
-  @@index([OtherElection_2022])
-  @@index([AnyElection_2021])
-  @@index([General_2020])
-  @@index([Primary_2020])
-  @@index([PresidentialPrimary_2020])
-  @@index([OtherElection_2020])
-  @@index([AnyElection_2019])
-  @@index([General_2018])
-  @@index([Primary_2018])
-  @@index([OtherElection_2018])
-  @@index([AnyElection_2017])
-  @@index([General_2016])
-  @@index([Primary_2016])
-  @@index([PresidentialPrimary_2016])
-  @@index([OtherElection_2016])  
+  
 }
