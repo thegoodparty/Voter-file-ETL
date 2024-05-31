@@ -256,6 +256,7 @@ model VoterAL {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -514,6 +515,7 @@ model VoterAK {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -771,6 +773,7 @@ model VoterAZ {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -1028,6 +1031,7 @@ model VoterAR {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -1285,6 +1289,7 @@ model VoterCA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -1542,6 +1547,7 @@ model VoterCO {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -1799,6 +1805,7 @@ model VoterCT {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -2056,6 +2063,7 @@ model VoterDC {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -2313,6 +2321,7 @@ model VoterDE {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -2570,6 +2579,7 @@ model VoterFL {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -2827,6 +2837,7 @@ model VoterGA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -3084,6 +3095,7 @@ model VoterHI {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -3341,6 +3353,7 @@ model VoterID {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -3598,6 +3611,7 @@ model VoterIL {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -3855,6 +3869,7 @@ model VoterIN {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -4112,6 +4127,7 @@ model VoterIA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -4369,6 +4385,7 @@ model VoterKS {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -4626,6 +4643,7 @@ model VoterKY {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -4883,6 +4901,7 @@ model VoterLA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -5140,6 +5159,7 @@ model VoterME {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -5397,6 +5417,7 @@ model VoterMD {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -5654,6 +5675,7 @@ model VoterMA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -5911,6 +5933,7 @@ model VoterMI {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -6168,6 +6191,7 @@ model VoterMN {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -6425,6 +6449,7 @@ model VoterMS {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -6682,6 +6707,7 @@ model VoterMO {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -6939,6 +6965,7 @@ model VoterMT {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -7196,6 +7223,7 @@ model VoterNE {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -7453,6 +7481,7 @@ model VoterNV {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -7710,6 +7739,7 @@ model VoterNH {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -7967,6 +7997,7 @@ model VoterNJ {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -8224,6 +8255,7 @@ model VoterNM {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -8481,6 +8513,7 @@ model VoterNY {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -8738,6 +8771,7 @@ model VoterNC {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -8995,6 +9029,7 @@ model VoterND {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -9252,6 +9287,7 @@ model VoterOH {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -9509,6 +9545,7 @@ model VoterOK {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -9766,6 +9803,7 @@ model VoterOR {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -10023,6 +10061,7 @@ model VoterPA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -10280,6 +10319,7 @@ model VoterRI {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -10537,6 +10577,7 @@ model VoterSC {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -10794,6 +10835,7 @@ model VoterSD {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -11051,6 +11093,7 @@ model VoterTN {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -11308,6 +11351,7 @@ model VoterTX {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -11565,6 +11609,7 @@ model VoterUT {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -11822,6 +11867,7 @@ model VoterVT {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -12079,6 +12125,7 @@ model VoterVA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -12336,6 +12383,7 @@ model VoterWA {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -12593,6 +12641,7 @@ model VoterWV {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -12850,6 +12899,7 @@ model VoterWI {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
@@ -13107,6 +13157,7 @@ model VoterWY {
   @@index([Voters_OfficialRegDate])
   @@index([VoterTelephones_CellConfidenceCode])
   @@index([VoterTelephones_LandlineConfidenceCode])
+  @@index([Mailing_Families_FamilyID])
   // Voter Turnout Indexes
   @@index([Voters_VotingPerformanceEvenYearGeneral])
   @@index([Voters_VotingPerformanceEvenYearPrimary])
