@@ -122,6 +122,20 @@ async function main() {
   }
 }
 
+async function truncateTable(state: string) {
+  const tableName = `public."Voter${state}"`;
+  const query = `TRUNCATE TABLE ${tableName} RESTART IDENTITY;`;
+
+  try {
+    await prisma.$executeRawUnsafe(query);
+    console.log(`Table ${tableName} truncated successfully`);
+  } catch (error) {
+    console.error("Error truncating table:", error);
+  } finally {
+    // await prisma.$disconnect();
+  }
+}
+
 async function processVoterFile(s3Key: string, state: string) {
   let buffer: any[] = [];
   const batchSize = 1000;
@@ -129,7 +143,7 @@ async function processVoterFile(s3Key: string, state: string) {
   const modelName = `Voter${state}`;
 
   // truncate the table before insert.
-  await prisma.$executeRaw`TRUNCATE TABLE public."Voter${state}" RESTART IDENTITY;`;
+  await truncateTable(state);
 
   const s3Stream = s3
     .getObject({ Bucket: s3Bucket, Key: s3Key })
