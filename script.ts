@@ -125,9 +125,10 @@ async function main() {
 async function truncateTable(state: string) {
   const tableName = `public."Voter${state}"`;
   const query = `TRUNCATE TABLE ${tableName} RESTART IDENTITY;`;
+  // we do a transaction because you cannot set timeout on prepared statements.
   try {
     const result = await prisma.$transaction(async (prisma) => {
-      await prisma.$executeRaw`SET LOCAL statement_timeout = '3600000';`; // Set timeout to 60 seconds
+      await prisma.$executeRaw`SET LOCAL statement_timeout = '3600000';`; // Set timeout to 1 hour
       return await prisma.$executeRawUnsafe(query);
     });
     console.log(`Table ${tableName} truncated successfully`);
@@ -180,9 +181,6 @@ async function processVoterFile(s3Key: string, state: string) {
     if (row?.City && row.City != "") {
       row.City = row.City.replace(" (EST.)", "");
     }
-
-    // // sleep for 1ms to avoid bursting db iops
-    // await new Promise((resolve) => setTimeout(resolve, 1));
     buffer.push(row);
     if (buffer.length >= batchSize) {
       batchPromises.push(processBatch(buffer.slice(), modelName));
