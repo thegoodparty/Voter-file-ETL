@@ -123,14 +123,21 @@ model VoterAL {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -187,6 +194,8 @@ model VoterAL {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -194,6 +203,11 @@ model VoterAL {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -382,14 +396,21 @@ model VoterAK {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -446,6 +467,8 @@ model VoterAK {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -453,6 +476,11 @@ model VoterAK {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -640,14 +668,21 @@ model VoterAZ {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -704,6 +739,8 @@ model VoterAZ {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -711,6 +748,11 @@ model VoterAZ {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -898,14 +940,21 @@ model VoterAR {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -962,6 +1011,8 @@ model VoterAR {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -969,6 +1020,11 @@ model VoterAR {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -1156,14 +1212,21 @@ model VoterCA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -1220,6 +1283,8 @@ model VoterCA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -1227,6 +1292,11 @@ model VoterCA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -1414,14 +1484,21 @@ model VoterCO {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -1478,6 +1555,8 @@ model VoterCO {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -1485,6 +1564,11 @@ model VoterCO {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -1672,14 +1756,21 @@ model VoterCT {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -1736,6 +1827,8 @@ model VoterCT {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -1743,6 +1836,11 @@ model VoterCT {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -1930,14 +2028,21 @@ model VoterDC {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -1994,6 +2099,8 @@ model VoterDC {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -2001,6 +2108,11 @@ model VoterDC {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -2188,14 +2300,21 @@ model VoterDE {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -2252,6 +2371,8 @@ model VoterDE {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -2259,6 +2380,11 @@ model VoterDE {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -2446,14 +2572,21 @@ model VoterFL {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -2510,6 +2643,8 @@ model VoterFL {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -2517,6 +2652,11 @@ model VoterFL {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -2704,14 +2844,21 @@ model VoterGA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -2768,6 +2915,8 @@ model VoterGA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -2775,6 +2924,11 @@ model VoterGA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -2962,14 +3116,21 @@ model VoterHI {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -3026,6 +3187,8 @@ model VoterHI {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -3033,6 +3196,11 @@ model VoterHI {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -3220,14 +3388,21 @@ model VoterID {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -3284,6 +3459,8 @@ model VoterID {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -3291,6 +3468,11 @@ model VoterID {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -3478,14 +3660,21 @@ model VoterIL {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -3542,6 +3731,8 @@ model VoterIL {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -3549,6 +3740,11 @@ model VoterIL {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -3736,14 +3932,21 @@ model VoterIN {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -3800,6 +4003,8 @@ model VoterIN {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -3807,6 +4012,11 @@ model VoterIN {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -3994,14 +4204,21 @@ model VoterIA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -4058,6 +4275,8 @@ model VoterIA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -4065,6 +4284,11 @@ model VoterIA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -4252,14 +4476,21 @@ model VoterKS {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -4316,6 +4547,8 @@ model VoterKS {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -4323,6 +4556,11 @@ model VoterKS {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -4510,14 +4748,21 @@ model VoterKY {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -4574,6 +4819,8 @@ model VoterKY {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -4581,6 +4828,11 @@ model VoterKY {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -4768,14 +5020,21 @@ model VoterLA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -4832,6 +5091,8 @@ model VoterLA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -4839,6 +5100,11 @@ model VoterLA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -5026,14 +5292,21 @@ model VoterME {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -5090,6 +5363,8 @@ model VoterME {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -5097,6 +5372,11 @@ model VoterME {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -5284,14 +5564,21 @@ model VoterMD {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -5348,6 +5635,8 @@ model VoterMD {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -5355,6 +5644,11 @@ model VoterMD {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -5542,14 +5836,21 @@ model VoterMA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -5606,6 +5907,8 @@ model VoterMA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -5613,6 +5916,11 @@ model VoterMA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -5800,14 +6108,21 @@ model VoterMI {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -5864,6 +6179,8 @@ model VoterMI {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -5871,6 +6188,11 @@ model VoterMI {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -6058,14 +6380,21 @@ model VoterMN {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -6122,6 +6451,8 @@ model VoterMN {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -6129,6 +6460,11 @@ model VoterMN {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -6316,14 +6652,21 @@ model VoterMS {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -6380,6 +6723,8 @@ model VoterMS {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -6387,6 +6732,11 @@ model VoterMS {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -6574,14 +6924,21 @@ model VoterMO {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -6638,6 +6995,8 @@ model VoterMO {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -6645,6 +7004,11 @@ model VoterMO {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -6832,14 +7196,21 @@ model VoterMT {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -6896,6 +7267,8 @@ model VoterMT {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -6903,6 +7276,11 @@ model VoterMT {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -7090,14 +7468,21 @@ model VoterNE {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -7154,6 +7539,8 @@ model VoterNE {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -7161,6 +7548,11 @@ model VoterNE {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -7348,14 +7740,21 @@ model VoterNV {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -7412,6 +7811,8 @@ model VoterNV {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -7419,6 +7820,11 @@ model VoterNV {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -7606,14 +8012,21 @@ model VoterNH {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -7670,6 +8083,8 @@ model VoterNH {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -7677,6 +8092,11 @@ model VoterNH {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -7864,14 +8284,21 @@ model VoterNJ {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -7928,6 +8355,8 @@ model VoterNJ {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -7935,6 +8364,11 @@ model VoterNJ {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -8122,14 +8556,21 @@ model VoterNM {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -8186,6 +8627,8 @@ model VoterNM {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -8193,6 +8636,11 @@ model VoterNM {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -8380,14 +8828,21 @@ model VoterNY {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -8444,6 +8899,8 @@ model VoterNY {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -8451,6 +8908,11 @@ model VoterNY {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -8638,14 +9100,21 @@ model VoterNC {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -8702,6 +9171,8 @@ model VoterNC {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -8709,6 +9180,11 @@ model VoterNC {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -8896,14 +9372,21 @@ model VoterND {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -8960,6 +9443,8 @@ model VoterND {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -8967,6 +9452,11 @@ model VoterND {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -9154,14 +9644,21 @@ model VoterOH {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -9218,6 +9715,8 @@ model VoterOH {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -9225,6 +9724,11 @@ model VoterOH {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -9412,14 +9916,21 @@ model VoterOK {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -9476,6 +9987,8 @@ model VoterOK {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -9483,6 +9996,11 @@ model VoterOK {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -9670,14 +10188,21 @@ model VoterOR {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -9734,6 +10259,8 @@ model VoterOR {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -9741,6 +10268,11 @@ model VoterOR {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -9928,14 +10460,21 @@ model VoterPA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -9992,6 +10531,8 @@ model VoterPA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -9999,6 +10540,11 @@ model VoterPA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -10186,14 +10732,21 @@ model VoterRI {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -10250,6 +10803,8 @@ model VoterRI {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -10257,6 +10812,11 @@ model VoterRI {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -10444,14 +11004,21 @@ model VoterSC {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -10508,6 +11075,8 @@ model VoterSC {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -10515,6 +11084,11 @@ model VoterSC {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -10702,14 +11276,21 @@ model VoterSD {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -10766,6 +11347,8 @@ model VoterSD {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -10773,6 +11356,11 @@ model VoterSD {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -10960,14 +11548,21 @@ model VoterTN {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -11024,6 +11619,8 @@ model VoterTN {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -11031,6 +11628,11 @@ model VoterTN {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -11218,14 +11820,21 @@ model VoterTX {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -11282,6 +11891,8 @@ model VoterTX {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -11289,6 +11900,11 @@ model VoterTX {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -11476,14 +12092,21 @@ model VoterUT {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -11540,6 +12163,8 @@ model VoterUT {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -11547,6 +12172,11 @@ model VoterUT {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -11734,14 +12364,21 @@ model VoterVT {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -11798,6 +12435,8 @@ model VoterVT {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -11805,6 +12444,11 @@ model VoterVT {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -11992,14 +12636,21 @@ model VoterVA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -12056,6 +12707,8 @@ model VoterVA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -12063,6 +12716,11 @@ model VoterVA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -12250,14 +12908,21 @@ model VoterWA {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -12314,6 +12979,8 @@ model VoterWA {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -12321,6 +12988,11 @@ model VoterWA {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -12508,14 +13180,21 @@ model VoterWV {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -12572,6 +13251,8 @@ model VoterWV {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -12579,6 +13260,11 @@ model VoterWV {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -12766,14 +13452,21 @@ model VoterWI {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -12830,6 +13523,8 @@ model VoterWI {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -12837,6 +13532,11 @@ model VoterWI {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
@@ -13024,14 +13724,21 @@ model VoterWY {
   Precinct  String?  @db.Text()  // District
   County_Legislative_District  String?  @db.Text()  // District
   City  String?  @db.Text()  // District
-  City_Council_Commissioner_District  String?  @db.Text()  
+  City_Council_Commissioner_District  String?  @db.Text()  // District
+  County_Commissioner_District  String?  @db.Text()  // District
+  County_Supervisorial_District  String?  @db.Text()  // District
   City_Mayoral_District  String?  @db.Text()  // District
   Town_District  String?  @db.Text()  // District
   Town_Council  String?  @db.Text()  // District
   Village  String?  @db.Text()  // District
   Township  String?  @db.Text()  // District
   Borough  String?  @db.Text()  // District
-  Hamlet_Community_Area  String?  @db.Text()  
+  Hamlet_Community_Area  String?  @db.Text()  // District
+  City_Ward  String?  @db.Text()  // District
+  Town_Ward  String?  @db.Text()  // District
+  Township_Ward  String?  @db.Text()  // District
+  Village_Ward  String?  @db.Text()  // District
+  Borough_Ward  String?  @db.Text()  // District
   Board_of_Education_District  String?  @db.Text()  // District
   Board_of_Education_SubDistrict  String?  @db.Text()  // District
   City_School_District  String?  @db.Text()  // District
@@ -13088,6 +13795,8 @@ model VoterWY {
   @@index([City])
   @@index([County])
   @@index([City_Council_Commissioner_District])
+  @@index([County_Commissioner_District])
+  @@index([County_Supervisorial_District])
   @@index([City_Mayoral_District])
   @@index([Town_District])
   @@index([Town_Council])
@@ -13095,6 +13804,11 @@ model VoterWY {
   @@index([Township])
   @@index([Borough])
   @@index([Hamlet_Community_Area])
+  @@index([City_Ward])
+  @@index([Town_Ward])
+  @@index([Township_Ward])
+  @@index([Village_Ward])
+  @@index([Borough_Ward])
   @@index([Board_of_Education_District])
   @@index([Board_of_Education_SubDistrict])
   @@index([City_School_District])
