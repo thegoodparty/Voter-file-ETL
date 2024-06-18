@@ -124,10 +124,12 @@ async function main() {
 
 async function truncateTable(state: string) {
   const tableName = `public."Voter${state}"`;
-  const query = `SET LOCAL statement_timeout = '3600000'; TRUNCATE TABLE ${tableName} RESTART IDENTITY;`;
-
+  const query = `TRUNCATE TABLE ${tableName} RESTART IDENTITY;`;
   try {
-    await prisma.$executeRawUnsafe(query);
+    const result = await prisma.$transaction(async (prisma) => {
+      await prisma.$executeRaw`SET LOCAL statement_timeout = '3600000';`; // Set timeout to 60 seconds
+      return await prisma.$executeRawUnsafe(query);
+    });
     console.log(`Table ${tableName} truncated successfully`);
   } catch (error) {
     console.error("Error truncating table:", error);
