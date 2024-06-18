@@ -129,7 +129,7 @@ async function processVoterFile(s3Key: string, state: string) {
   const modelName = `Voter${state}`;
 
   // truncate the table before insert.
-  await prisma.$executeRaw`TRUNCATE TABLE public."${modelName}" RESTART IDENTITY;`;
+  await prisma.$executeRaw`TRUNCATE TABLE public."Voter${state}" RESTART IDENTITY;`;
 
   const s3Stream = s3
     .getObject({ Bucket: s3Bucket, Key: s3Key })
