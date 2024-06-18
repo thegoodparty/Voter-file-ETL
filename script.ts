@@ -124,7 +124,7 @@ async function main() {
 
 async function truncateTable(state: string) {
   const tableName = `public."Voter${state}"`;
-  const query = `TRUNCATE TABLE ${tableName} RESTART IDENTITY;`;
+  const query = `SET LOCAL statement_timeout = '3600000'; TRUNCATE TABLE ${tableName} RESTART IDENTITY;`;
 
   try {
     await prisma.$executeRawUnsafe(query);
@@ -175,6 +175,10 @@ async function processVoterFile(s3Key: string, state: string) {
       );
       row["Residence_Addresses_GeoHash"] = geoHash;
     }
+    if (row?.City && row.City != "") {
+      row.City = row.City.replace(" (EST.)", "");
+    }
+
     // // sleep for 1ms to avoid bursting db iops
     // await new Promise((resolve) => setTimeout(resolve, 1));
     buffer.push(row);
