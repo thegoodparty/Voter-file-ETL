@@ -14,10 +14,14 @@
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
     "ngeohash": "^0.6.3",
-    "pg": "^8.11.5"
+    "pg": "^8.11.5",
+    "ssh2-sftp-client": "^10.0.3",
+    "unzipper": "^0.12.2"
   },
   "devDependencies": {
     "@types/pg": "^8.11.6",
+    "@types/ssh2-sftp-client": "^9.0.3",
+    "@types/unzipper": "^0.10.9",
     "prisma": "^5.13.0",
     "ts-node": "10.9.2",
     "typescript": "5.4.5"
