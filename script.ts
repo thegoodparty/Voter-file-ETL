@@ -65,7 +65,7 @@ async function processBatch(rows: any[], modelName: string) {
     success += rows.length;
     // console.log("success writing to db!", response);
     console.log(
-      `[${modelName}]Total: ${total}, Success: ${success}, Failed: ${failed}`
+      `[${modelName}] Total: ${total}, Success: ${success}, Failed: ${failed}`
     );
   } catch (e) {
     failed += rows.length;
@@ -157,9 +157,9 @@ async function processVoterFile(s3Key: string, state: string) {
   // await truncateTable(state);
 
   // reset the counters.
-  let total = 0;
-  let success = 0;
-  let failed = 0;
+  total = 0;
+  success = 0;
+  failed = 0;
 
   const s3Stream = s3
     .getObject({ Bucket: s3Bucket, Key: s3Key })
