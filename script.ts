@@ -26,6 +26,11 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
+let total = 0;
+let success = 0;
+let failed = 0;
+const batchSize = 1000;
+
 async function getModelFields(modelName: string) {
   const schemaPath = join(__dirname, "prisma/schema.prisma");
   const schema = readFileSync(schemaPath, "utf-8");
@@ -57,8 +62,13 @@ async function processBatch(rows: any[], modelName: string) {
       data: rows,
       skipDuplicates: true,
     });
-    console.log("success writing to db!");
+    success += rows.length;
+    // console.log("success writing to db!", response);
+    console.log(
+      `[${modelName}]Total: ${total}, Success: ${success}, Failed: ${failed}`
+    );
   } catch (e) {
+    failed += rows.length;
     console.log("error writing to db", e);
   }
 }
@@ -95,8 +105,8 @@ async function getAllFiles(bucket: string, maxKeys: number) {
 
 async function main() {
   // Seed the database with the voter files
-  let startFile = 0;
-  let endFile = 51;
+  let startFile = 4; // 0
+  let endFile = 4; // 51
   let files = [];
   files = await getAllFiles(s3Bucket, 200);
   // only do the first file
@@ -141,12 +151,15 @@ async function truncateTable(state: string) {
 
 async function processVoterFile(s3Key: string, state: string) {
   let buffer: any[] = [];
-  const batchSize = 1000;
   let batchPromises: any[] = [];
   const modelName = `Voter${state}`;
-
   // truncate the table before insert.
-  await truncateTable(state);
+  // await truncateTable(state);
+
+  // reset the counters.
+  let total = 0;
+  let success = 0;
+  let failed = 0;
 
   const s3Stream = s3
     .getObject({ Bucket: s3Bucket, Key: s3Key })
@@ -183,6 +196,7 @@ async function processVoterFile(s3Key: string, state: string) {
     }
     buffer.push(row);
     if (buffer.length >= batchSize) {
+      total += buffer.length;
       batchPromises.push(processBatch(buffer.slice(), modelName));
       buffer = [];
     }
