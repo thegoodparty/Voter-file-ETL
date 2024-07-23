@@ -1,8 +1,10 @@
 import Client from "ssh2-sftp-client";
 import path from "path";
 import unzipper from "unzipper";
+import dotenv from "dotenv";
 
 const sftp = new Client();
+dotenv.config();
 
 const remoteDir = "/VM2Uniform";
 const localDir = "/home/ec2-user/VM2Uniform";
