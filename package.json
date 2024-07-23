@@ -2,7 +2,8 @@
   "name": "Voter-file-ETL",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node ./script.ts"
+    "dev": "ts-node ./script.ts",
+    "download": "ts-node ./download.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^5.14.0",
