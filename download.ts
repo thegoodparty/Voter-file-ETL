@@ -15,8 +15,10 @@ async function downloadAndUnZipFiles() {
       username: process.env.SFTP_USERNAME,
       password: process.env.SFTP_PASSWORD,
     });
-    const files = await sftp.list(remoteDir);
-    const zipFiles = files.filter((file) => file.name.endsWith(".zip"));
+    const files: any = await sftp.list(remoteDir);
+    const zipFiles: any = files.filter((file: any) =>
+      file.name.endsWith(".zip")
+    );
 
     for (const file of zipFiles) {
       const remoteFilePath = path.join(remoteDir, file.name);
