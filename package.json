@@ -7,17 +7,17 @@
     "download": "ts-node ./download.ts"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^5.14.0",
-    "@prisma/client": "5.14.0",
+    "@prisma/adapter-pg": "^5.17.0",
+    "@prisma/client": "^5.17.0",
     "@prisma/sdk": "^4.0.0",
     "@types/ngeohash": "^0.6.8",
-    "@types/node": "20.12.11",
-    "aws-sdk": "^2.1627.0",
+    "@types/node": "^20.14.12",
+    "aws-sdk": "^2.1662.0",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
     "minimist": "^1.2.8",
     "ngeohash": "^0.6.3",
-    "pg": "^8.11.5",
+    "pg": "^8.12.0",
     "ssh2-sftp-client": "^10.0.3",
     "unzipper": "^0.12.2"
   },
@@ -26,8 +26,8 @@
     "@types/pg": "^8.11.6",
     "@types/ssh2-sftp-client": "^9.0.3",
     "@types/unzipper": "^0.10.9",
-    "prisma": "^5.13.0",
+    "prisma": "^5.17.0",
     "ts-node": "10.9.2",
-    "typescript": "5.4.5"
+    "typescript": "^5.5.4"
   }
 }
