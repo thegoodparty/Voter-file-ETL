@@ -8,6 +8,7 @@ import csv from "csv-parser";
 import dotenv from "dotenv";
 import geohash from "ngeohash";
 import fs from "fs";
+import minimist from "minimist";
 
 dotenv.config();
 
@@ -17,82 +18,32 @@ const localDir = "/home/ec2-user/VM2Uniform";
 let total = 0;
 let success = 0;
 let failed = 0;
-const batchSize = 1000;
-const resume = 16449000; // for resuming a specific file.
-
-async function getModelFields(modelName: string) {
-  const schemaPath = join(__dirname, "prisma/schema.prisma");
-  const schema = readFileSync(schemaPath, "utf-8");
-  const dmmf = await getDMMF({ datamodel: schema });
-
-  const models = dmmf.datamodel.models;
-  let modelFields: { [modelName: string]: string[] } = {};
-  let fieldTypes: { [modelName: string]: { [fieldName: string]: string } } = {};
-
-  models.forEach((model) => {
-    if (model.name !== modelName) return;
-    modelFields[model.name] = model.fields.map((field) => field.name);
-    fieldTypes[model.name] = model.fields.reduce((acc: any, field) => {
-      acc[field.name] = field.type;
-      return acc;
-    }, {});
-  });
-
-  return { modelFields, fieldTypes };
-}
-
-async function processBatch(rows: any[], modelName: string) {
-  let response;
-  const modelLower = modelName.replace("Voter", "voter");
-  console.log(`Writing ${rows.length} rows to ${modelLower}...`);
-  try {
-    // @ts-ignore
-    response = await prisma[modelLower].createMany({
-      data: rows,
-      skipDuplicates: true,
-    });
-    success += rows.length;
-    // console.log("success writing to db!", response);
-    console.log(
-      `[${modelName}] Total: ${total}, Success: ${success}, Failed: ${failed}`
-    );
-  } catch (e) {
-    failed += rows.length;
-    console.log("error writing to db", e);
-  }
-}
-
-async function getAllFiles() {
-  let files = [];
-  try {
-    // get files from the local directory
-    files = fs.readdirSync(localDir).filter((file: string) => {
-      return file.includes(".tab");
-    });
-
-    // order files by filename
-    files.sort((a, b) => {
-      const aNum = parseInt(a.split("--")[0]);
-      const bNum = parseInt(b.split("--")[0]);
-      return aNum - bNum;
-    });
-  } catch (error) {
-    console.error("Error fetching files: ", error);
-    throw error;
-  }
-  return files;
-}
+let resume = 0; // for resuming a specific file.
+let batchSize = 1000;
 
 async function main() {
+  const args = minimist(process.argv.slice(2));
+  let startFile = 0;
+  let endFile = 51;
+
+  if (args?.start) {
+    startFile = parseInt(args.start);
+  }
+  if (args?.end) {
+    endFile = parseInt(args.end);
+  }
+  if (args?.resume) {
+    resume = parseInt(args.resume);
+  }
+  if (args?.batchSize) {
+    batchSize = parseInt(args.batch);
+  }
+
   // Seed the database with the voter files
-  let startFile = 4; // 0
-  let endFile = 4; // 51
   let files = [];
   files = await getAllFiles();
   console.log("files", files);
-  // only do the first file
-  // files = files.slice(0, 1);
-  // console.log("files", files);
+
   for (let fileNumber = 0; fileNumber < files.length; fileNumber++) {
     if (startFile && startFile > fileNumber) {
       continue;
@@ -134,7 +85,7 @@ async function processVoterFile(fileKey: string, state: string) {
   let buffer: any[] = [];
   let batchPromises: any[] = [];
   const modelName = `Voter${state}`;
-  // truncate the table before insert.
+  // truncate disabled for now we will only append.
   // await truncateTable(state);
 
   // reset the counters.
@@ -227,6 +178,68 @@ async function processVoterFile(fileKey: string, state: string) {
     console.error("Error processing file", error);
     // console.error("Error processing file", error);
   }
+}
+
+async function getModelFields(modelName: string) {
+  const schemaPath = join(__dirname, "prisma/schema.prisma");
+  const schema = readFileSync(schemaPath, "utf-8");
+  const dmmf = await getDMMF({ datamodel: schema });
+
+  const models = dmmf.datamodel.models;
+  let modelFields: { [modelName: string]: string[] } = {};
+  let fieldTypes: { [modelName: string]: { [fieldName: string]: string } } = {};
+
+  models.forEach((model) => {
+    if (model.name !== modelName) return;
+    modelFields[model.name] = model.fields.map((field) => field.name);
+    fieldTypes[model.name] = model.fields.reduce((acc: any, field) => {
+      acc[field.name] = field.type;
+      return acc;
+    }, {});
+  });
+
+  return { modelFields, fieldTypes };
+}
+
+async function processBatch(rows: any[], modelName: string) {
+  const modelLower = modelName.replace("Voter", "voter");
+  console.log(`Writing ${rows.length} rows to ${modelLower}...`);
+  try {
+    // @ts-ignore
+    response = await prisma[modelLower].createMany({
+      data: rows,
+      skipDuplicates: true,
+    });
+    success += rows.length;
+    // console.log("success writing to db!", response);
+    console.log(
+      `[${modelName}] Total: ${total}, Success: ${success}, Failed: ${failed}`
+    );
+  } catch (e) {
+    failed += rows.length;
+    console.log("error writing to db", e);
+  }
+}
+
+async function getAllFiles() {
+  let files = [];
+  try {
+    // get files from the local directory
+    files = fs.readdirSync(localDir).filter((file: string) => {
+      return file.includes(".tab");
+    });
+
+    // order files by filename
+    files.sort((a, b) => {
+      const aNum = parseInt(a.split("--")[0]);
+      const bNum = parseInt(b.split("--")[0]);
+      return aNum - bNum;
+    });
+  } catch (error) {
+    console.error("Error fetching files: ", error);
+    throw error;
+  }
+  return files;
 }
 
 main()

@@ -15,12 +15,14 @@
     "aws-sdk": "^2.1627.0",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
+    "minimist": "^1.2.8",
     "ngeohash": "^0.6.3",
     "pg": "^8.11.5",
     "ssh2-sftp-client": "^10.0.3",
     "unzipper": "^0.12.2"
   },
   "devDependencies": {
+    "@types/minimist": "^1.2.5",
     "@types/pg": "^8.11.6",
     "@types/ssh2-sftp-client": "^9.0.3",
     "@types/unzipper": "^0.10.9",
