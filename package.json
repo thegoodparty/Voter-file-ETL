@@ -2,7 +2,8 @@
   "name": "Voter-file-ETL",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node ./script.ts",
+    "load": "ts-node ./load.ts",
+    "load-s3": "ts-node ./load-s3.ts",
     "download": "ts-node ./download.ts"
   },
   "dependencies": {
