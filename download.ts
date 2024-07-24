@@ -1,7 +1,7 @@
 import Client from "ssh2-sftp-client";
 import path from "path";
 import dotenv from "dotenv";
-import { getLocalFiles, unzipFile } from "./utils";
+import { getLocalFiles, unzipFile, fileExists } from "./utils";
 import fs from "fs";
 
 const sftp = new Client();
@@ -29,7 +29,7 @@ async function main() {
       const remoteFilePath = path.join(remoteDir, file.name);
       const localFilePath = path.join(localDir, file.name);
 
-      if (localFiles[0] === file.name) {
+      if (fileExists(localFiles, file.name)) {
         console.log(
           `File ${file.name} already exists locally. Skipping download.`
         );

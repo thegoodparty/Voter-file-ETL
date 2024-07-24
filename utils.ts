@@ -25,6 +25,18 @@ export async function getLocalFiles(localDir: string) {
   return files;
 }
 
+export function fileExists(localFiles: string[], remoteFile: string) {
+  // check the remote .zip file against the local .tab files.
+  const remoteFileParts = remoteFile.split(".");
+  for (let localFile of localFiles) {
+    const localFileParts = localFile.split(".");
+    if (localFileParts[0] === remoteFileParts[0]) {
+      return true;
+    }
+  }
+  return false;
+}
+
 export async function unzipFile(zipFilePath: string, outputDir: string) {
   try {
     const directory = await unzipper.Open.file(zipFilePath);
