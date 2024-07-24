@@ -84,7 +84,7 @@ async function main() {
 
       await prisma.voterFile.create({
         data: {
-          Filename: file.name,
+          Filename: newFileName,
           State: state,
           Lines: count,
         },
