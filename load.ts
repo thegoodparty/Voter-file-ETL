@@ -1,9 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import { getDMMF } from "@prisma/sdk";
 import { pipeline } from "stream";
 import { promisify } from "util";
 import { join } from "path";
-import { readFileSync } from "fs";
+import { getLocalFiles, getModelFields } from "./utils";
 import csv from "csv-parser";
 import dotenv from "dotenv";
 import geohash from "ngeohash";
@@ -12,14 +11,13 @@ import minimist from "minimist";
 
 dotenv.config();
 
-const prisma = new PrismaClient();
-const localDir = "/home/ec2-user/VM2Uniform";
-
 let total = 0;
 let success = 0;
 let failed = 0;
 let resume = 0; // for resuming a specific file.
 let batchSize = 1000;
+const localDir = process.env.LOCAL_DIRECTORY || "/";
+const prisma = new PrismaClient();
 
 async function main() {
   const args = minimist(process.argv.slice(2));
@@ -41,7 +39,7 @@ async function main() {
 
   // Seed the database with the voter files
   let files = [];
-  files = await getAllFiles();
+  files = await getLocalFiles(localDir);
   console.log("files", files);
 
   for (let fileNumber = 0; fileNumber < files.length; fileNumber++) {
@@ -180,27 +178,6 @@ async function processVoterFile(fileKey: string, state: string) {
   }
 }
 
-async function getModelFields(modelName: string) {
-  const schemaPath = join(__dirname, "prisma/schema.prisma");
-  const schema = readFileSync(schemaPath, "utf-8");
-  const dmmf = await getDMMF({ datamodel: schema });
-
-  const models = dmmf.datamodel.models;
-  let modelFields: { [modelName: string]: string[] } = {};
-  let fieldTypes: { [modelName: string]: { [fieldName: string]: string } } = {};
-
-  models.forEach((model) => {
-    if (model.name !== modelName) return;
-    modelFields[model.name] = model.fields.map((field) => field.name);
-    fieldTypes[model.name] = model.fields.reduce((acc: any, field) => {
-      acc[field.name] = field.type;
-      return acc;
-    }, {});
-  });
-
-  return { modelFields, fieldTypes };
-}
-
 async function processBatch(rows: any[], modelName: string) {
   const modelLower = modelName.replace("Voter", "voter");
   console.log(`Writing ${rows.length} rows to ${modelLower}...`);
@@ -219,27 +196,6 @@ async function processBatch(rows: any[], modelName: string) {
     failed += rows.length;
     console.log("error writing to db", e);
   }
-}
-
-async function getAllFiles() {
-  let files = [];
-  try {
-    // get files from the local directory
-    files = fs.readdirSync(localDir).filter((file: string) => {
-      return file.includes(".tab");
-    });
-
-    // order files by filename
-    files.sort((a, b) => {
-      const aNum = parseInt(a.split("--")[0]);
-      const bNum = parseInt(b.split("--")[0]);
-      return aNum - bNum;
-    });
-  } catch (error) {
-    console.error("Error fetching files: ", error);
-    throw error;
-  }
-  return files;
 }
 
 main()
