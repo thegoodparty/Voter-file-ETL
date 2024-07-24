@@ -69,14 +69,17 @@ async function main() {
       console.log(`Deleting ${localFilePath} ...`);
       fs.unlinkSync(localFilePath);
 
-      console.log(`Checking number of lines in ${localFilePath} ...`);
+      const newVoterFile = localFilePath.replace(".zip", ".tab");
+      const newFileName = file.name.replace(".zip", ".tab");
+
+      console.log(`Checking number of lines in ${newVoterFile} ...`);
       // get the number of lines in the file using wc -l and exec
-      const count = await countLines(localFilePath);
+      const count = await countLines(newVoterFile);
       const state = file.name.split("--")[1];
 
       if (!count || count === 0) {
-        console.error(`Error counting lines in ${localFilePath}`);
-        await sendSlackMessage(`Error counting lines in ${localFilePath}.`);
+        console.error(`Error counting lines in ${newVoterFile}`);
+        await sendSlackMessage(`Error counting lines in ${newVoterFile}.`);
       }
 
       await prisma.voterFile.create({

@@ -89,34 +89,30 @@ export async function getModelFields(modelName: string) {
   return { modelFields, fieldTypes };
 }
 
-export async function sendSlackMessage(
-  message: any,
-  addMarkdown: boolean = true
-): Promise<void> {
+export async function sendSlackMessage(message: string): Promise<void> {
   try {
     const slackAppId = process.env.SLACK_APP_ID;
     const token = process.env.SLACK_DEV_CHANNEL_TOKEN;
     const slackChannelId = process.env.SLACK_DEV_CHANNEL_ID;
 
+    console.log(`slackAppId: ${slackAppId}. slackChannelId: ${slackChannelId}`);
+
     if (!slackChannelId || !slackAppId || !token) {
       throw new Error("Missing Env Variables");
     }
 
-    let formattedMessage = message;
-    if (addMarkdown) {
-      formattedMessage = JSON.stringify({
-        text: "ETL error message",
-        blocks: [
-          {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: message,
-            },
+    let formattedMessage: string = JSON.stringify({
+      text: "ETL error message",
+      blocks: [
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: message,
           },
-        ],
-      });
-    }
+        },
+      ],
+    });
 
     const options = {
       uri: `https://hooks.slack.com/services/${slackAppId}/${slackChannelId}/${token}`,
