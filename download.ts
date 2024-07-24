@@ -1,7 +1,14 @@
 import Client from "ssh2-sftp-client";
 import path from "path";
 import dotenv from "dotenv";
-import { getLocalFiles, unzipFile, fileExists } from "./utils";
+import {
+  getLocalFiles,
+  unzipFile,
+  fileExists,
+  countLines,
+  sendSlackMessage,
+} from "./utils";
+import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 
 const sftp = new Client();
@@ -11,6 +18,7 @@ async function main() {
   const localDir = process.env.LOCAL_DIRECTORY || "/";
   const localFiles = await getLocalFiles(localDir);
   console.log("localFiles", localFiles);
+  const prisma = new PrismaClient();
 
   try {
     await sftp.connect({
@@ -60,8 +68,30 @@ async function main() {
       // Delete the local zip file.
       console.log(`Deleting ${localFilePath} ...`);
       fs.unlinkSync(localFilePath);
+
+      console.log(`Checking number of lines in ${localFilePath} ...`);
+      // get the number of lines in the file using wc -l and exec
+      const count = await countLines(localFilePath);
+      const state = file.name.split("--")[1];
+
+      if (!count || count === 0) {
+        console.error(`Error counting lines in ${localFilePath}`);
+        await sendSlackMessage(`Error counting lines in ${localFilePath}.`);
+      }
+
+      await prisma.voterFile.create({
+        data: {
+          Filename: file.name,
+          State: state,
+          Lines: count,
+        },
+      });
+
+      console.log(
+        `Added ${file.name} to the database. State: ${state}. Lines: ${count}`
+      );
     }
-    console.log("All .zip files have been processed successfully.");
+    console.log("All .zip files have been downloaded successfully.");
   } catch (err) {
     console.error("Error:", err);
   } finally {

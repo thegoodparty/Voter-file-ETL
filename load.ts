@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { pipeline } from "stream";
 import { promisify } from "util";
 import { join } from "path";
-import { getLocalFiles, getModelFields } from "./utils";
+import { getLocalFiles, getModelFields, sendSlackMessage } from "./utils";
 import csv from "csv-parser";
 import dotenv from "dotenv";
 import geohash from "ngeohash";
@@ -39,7 +39,7 @@ async function main() {
 
   // Seed the database with the voter files
   let files = [];
-  files = await getLocalFiles(localDir);
+  files = await getLocalFiles(localDir); // filenames from the local directory
   console.log("files", files);
 
   for (let fileNumber = 0; fileNumber < files.length; fileNumber++) {
@@ -55,6 +55,18 @@ async function main() {
         `processing file number ${fileNumber} filename ${files[fileNumber]}`
       );
       const state = file.split("--")[1];
+
+      const loaded = await prisma.voterFile.findUnique({
+        where: {
+          Filename: file,
+          Loaded: true,
+        },
+      });
+
+      if (loaded) {
+        console.log(`File ${file} already loaded. Skipping...`);
+        continue;
+      }
       await processVoterFile(file, state);
     } catch (error) {
       console.log("uncaught error adding voter file", error);
@@ -79,7 +91,7 @@ async function truncateTable(state: string) {
   }
 }
 
-async function processVoterFile(fileKey: string, state: string) {
+async function processVoterFile(fileName: string, state: string) {
   let buffer: any[] = [];
   let batchPromises: any[] = [];
   const modelName = `Voter${state}`;
@@ -91,7 +103,7 @@ async function processVoterFile(fileKey: string, state: string) {
   success = 0;
   failed = 0;
 
-  const fileStream = fs.createReadStream(join(localDir, fileKey));
+  const fileStream = fs.createReadStream(join(localDir, fileName));
 
   const { modelFields, fieldTypes } = await getModelFields(modelName);
 
@@ -146,6 +158,47 @@ async function processVoterFile(fileKey: string, state: string) {
     }
     await Promise.all(batchPromises);
     console.log("CSV file successfully processed");
+
+    const voterFile = await prisma.voterFile.findUnique({
+      where: {
+        Filename: fileName,
+      },
+    });
+
+    if (!voterFile) {
+      console.log("Error: VoterFile not found");
+      return;
+    }
+
+    // @ts-ignore
+    const dbCount = await prisma[modelName].count();
+
+    if (dbCount < voterFile.Lines) {
+      console.error(
+        `Error: Database count does not match file count. Database: ${dbCount}, File: ${voterFile.Lines}`
+      );
+      await sendSlackMessage(
+        `Error! VoterFile ETL. Model: ${modelName}. Database count does not match file count. Database: ${dbCount}, File: ${voterFile.Lines}`
+      );
+      return;
+    } else {
+      console.log(
+        `Database count matches file count. Database: ${dbCount}, File: ${voterFile.Lines}`
+      );
+      await sendSlackMessage(
+        `VoterFile ETL Success. Loaded: ${modelName}. Database Count: ${dbCount}, File Count: ${voterFile.Lines}`
+      );
+    }
+
+    // update the voter file to indicate that it has been loaded.
+    await prisma.voterFile.update({
+      where: {
+        Filename: fileName,
+      },
+      data: {
+        Loaded: true,
+      },
+    });
   };
 
   const pipelineAsync = promisify(pipeline);
@@ -165,7 +218,6 @@ async function processVoterFile(fileKey: string, state: string) {
         },
       }),
       async function* (source: any) {
-        // todo: test without for await.
         for await (const row of source) {
           yield processStream(row);
         }

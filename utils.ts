@@ -3,6 +3,9 @@ import { join } from "path";
 import { readFileSync } from "fs";
 import { getDMMF } from "@prisma/sdk";
 import unzipper from "unzipper";
+import { exec } from "child_process";
+import { promisify } from "util";
+import request from "request-promise";
 
 export async function getLocalFiles(localDir: string) {
   let files = [];
@@ -47,6 +50,23 @@ export async function unzipFile(zipFilePath: string, outputDir: string) {
   }
 }
 
+export async function countLines(filename: string): Promise<number> {
+  const execAsync = promisify(exec);
+  try {
+    const { stdout, stderr } = await execAsync(`wc -l ${filename}`);
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return 0;
+    }
+    const lines = parseInt(stdout.trim());
+    console.log(`Number of lines in ${filename}: ${lines}`);
+    return lines;
+  } catch (error) {
+    console.error(`Error executing wc -l: ${error}`);
+  }
+  return 0;
+}
+
 export async function getModelFields(modelName: string) {
   // get the field names and types for the model from the prisma schema.
   const schemaPath = join(__dirname, "prisma/schema.prisma");
@@ -67,4 +87,47 @@ export async function getModelFields(modelName: string) {
   });
 
   return { modelFields, fieldTypes };
+}
+
+export async function sendSlackMessage(
+  message: any,
+  addMarkdown: boolean = true
+): Promise<void> {
+  try {
+    const slackAppId = process.env.SLACK_APP_ID;
+    const token = process.env.SLACK_DEV_CHANNEL_TOKEN;
+    const slackChannelId = process.env.SLACK_DEV_CHANNEL_ID;
+
+    if (!slackChannelId || !slackAppId || !token) {
+      throw new Error("Missing Env Variables");
+    }
+
+    let formattedMessage = message;
+    if (addMarkdown) {
+      formattedMessage = JSON.stringify({
+        text: "ETL error message",
+        blocks: [
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: message,
+            },
+          },
+        ],
+      });
+    }
+
+    const options = {
+      uri: `https://hooks.slack.com/services/${slackAppId}/${slackChannelId}/${token}`,
+      method: "POST",
+      json: true,
+      body: formattedMessage,
+    };
+
+    await request(options);
+    console.log("Slack message sent successfully");
+  } catch (e) {
+    console.error("Error sending Slack message", e);
+  }
 }
