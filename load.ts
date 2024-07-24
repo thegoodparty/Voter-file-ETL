@@ -147,6 +147,16 @@ async function processVoterFile(fileKey: string, state: string) {
   const { modelFields, fieldTypes } = await getModelFields(modelName);
 
   const processStream = async (row: any) => {
+    if (resume && resume > 0) {
+      if (total < resume) {
+        total += 1;
+        if (total % 10000 === 0) {
+          console.log("skipping rows... total", total);
+        }
+        return;
+      }
+    }
+
     const keys = Object.keys(row);
     for (const key of keys) {
       if (row[key] === "" || row[key] === null || row[key] === undefined) {
@@ -176,13 +186,6 @@ async function processVoterFile(fileKey: string, state: string) {
     buffer.push(row);
     if (buffer.length >= batchSize) {
       total += buffer.length;
-      if (resume && resume > 0) {
-        if (total < resume) {
-          buffer = [];
-          console.log("skipping rows... total", total);
-          return;
-        }
-      }
       batchPromises.push(processBatch(buffer.slice(), modelName));
       buffer = [];
     }
