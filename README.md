@@ -1,6 +1,6 @@
 # Goodparty.org Voterfiles ETL client
 
-Loads voter files from s3 into postgres using prisma.
+Loads voter files from s3 or local files into postgres using prisma.
 
 # Installation:
 
@@ -22,7 +22,7 @@ ALTER ROLE username CREATEDB;
 
 You must reload configuration on the postgres server after.
 
-Copy .env file and update with your DATABASE_URL and AWS variables.
+Copy .env file and update with your DATABASE_URL and other variables.
 
 ```
 cp .env.example .env
@@ -40,8 +40,20 @@ Run migrations:
 npx prisma migrate dev
 ```
 
-Run the script:
+Run the downloader:
 
 ```
-npm run dev
+npm run download
+```
+
+Run the loader:
+
+```
+npm run load
+```
+
+Run the s3 loader:
+
+```
+npm run load-s3
 ```
