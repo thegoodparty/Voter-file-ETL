@@ -22,7 +22,7 @@ const prisma = new PrismaClient();
 async function main() {
   const args = minimist(process.argv.slice(2));
   let startFile = 0;
-  let endFile = 51;
+  let endFile = 0;
 
   if (args?.start) {
     startFile = parseInt(args.start);
@@ -46,7 +46,7 @@ async function main() {
     if (startFile && startFile > fileNumber) {
       continue;
     }
-    if (endFile && fileNumber > endFile) {
+    if (endFile && endFile > 0 && fileNumber > endFile) {
       break;
     }
     try {
