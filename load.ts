@@ -105,50 +105,62 @@ async function processVoterFile(fileName: string, state: string) {
 
   const fileStream = fs.createReadStream(join(localDir, fileName));
 
+  fileStream.on("error", (err) => {
+    console.error("Error reading file", err);
+  });
+
   const { modelFields, fieldTypes } = await getModelFields(modelName);
 
   const processStream = async (row: any) => {
-    if (resume && resume > 0) {
-      if (total < resume) {
-        total += 1;
-        if (total % 10000 === 0) {
-          console.log("skipping rows... total", total);
+    try {
+      if (resume && resume > 0) {
+        if (total < resume) {
+          total += 1;
+          if (total % 10000 === 0) {
+            console.log("skipping rows... total", total);
+          }
+          return;
         }
-        return;
-      }
-    }
-
-    const keys = Object.keys(row);
-    for (const key of keys) {
-      if (row[key] === "" || row[key] === null || row[key] === undefined) {
-        // any fields with blank or null or undefined values should be removed
-        delete row[key];
-        continue;
       }
 
-      if (fieldTypes[modelName][key] === "Int") {
-        row[key] = Number(row[key]);
+      const keys = Object.keys(row);
+      for (const key of keys) {
+        if (row[key] === "" || row[key] === null || row[key] === undefined) {
+          // any fields with blank or null or undefined values should be removed
+          delete row[key];
+          continue;
+        }
+
+        if (fieldTypes[modelName][key] === "Int") {
+          row[key] = Number(row[key]);
+        }
+        if (fieldTypes[modelName][key] === "DateTime") {
+          row[key] = new Date(row[key]);
+        }
       }
-      if (fieldTypes[modelName][key] === "DateTime") {
-        row[key] = new Date(row[key]);
+      if (
+        row.Residence_Addresses_Latitude &&
+        row.Residence_Addresses_Longitude
+      ) {
+        const geoHash = geohash.encode(
+          row.Residence_Addresses_Latitude,
+          row.Residence_Addresses_Longitude,
+          8
+        );
+        row["Residence_Addresses_GeoHash"] = geoHash;
       }
-    }
-    if (row.Residence_Addresses_Latitude && row.Residence_Addresses_Longitude) {
-      const geoHash = geohash.encode(
-        row.Residence_Addresses_Latitude,
-        row.Residence_Addresses_Longitude,
-        8
-      );
-      row["Residence_Addresses_GeoHash"] = geoHash;
-    }
-    if (row?.City && row.City != "") {
-      row.City = row.City.replace(" (EST.)", "");
-    }
-    buffer.push(row);
-    if (buffer.length >= batchSize) {
-      total += buffer.length;
-      batchPromises.push(processBatch(buffer.slice(), modelName));
-      buffer = [];
+      if (row?.City && row.City != "") {
+        row.City = row.City.replace(" (EST.)", "");
+      }
+      buffer.push(row);
+      if (buffer.length >= batchSize) {
+        total += buffer.length;
+        batchPromises.push(processBatch(buffer.slice(), modelName));
+        buffer = [];
+      }
+    } catch (error) {
+      console.error("Error processing row", error);
+      throw error;
     }
   };
 
@@ -172,6 +184,8 @@ async function processVoterFile(fileName: string, state: string) {
 
     // @ts-ignore
     const dbCount = await prisma[modelName].count();
+    console.log("dbCount", dbCount);
+    console.log("voterFile.Lines", voterFile.Lines);
 
     if (dbCount < voterFile.Lines) {
       console.error(
@@ -189,6 +203,9 @@ async function processVoterFile(fileName: string, state: string) {
         `VoterFile ETL Success. Loaded: ${modelName}. Database Count: ${dbCount}, File Count: ${voterFile.Lines}`
       );
     }
+
+    // sleep for 2 minutes. (for debugging)
+    await new Promise((resolve) => setTimeout(resolve, 120000));
 
     // update the voter file to indicate that it has been loaded.
     await prisma.voterFile.update({
@@ -218,8 +235,13 @@ async function processVoterFile(fileName: string, state: string) {
         },
       }),
       async function* (source: any) {
-        for await (const row of source) {
-          yield processStream(row);
+        try {
+          for await (const row of source) {
+            yield processStream(row);
+          }
+        } catch (error) {
+          console.error("Error processing file", error);
+          throw error;
         }
       }
     );
