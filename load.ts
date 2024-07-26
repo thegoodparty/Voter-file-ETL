@@ -158,6 +158,8 @@ async function processVoterFile(fileName: string, state: string) {
         batchPromises.push(processBatch(buffer.slice(), modelName));
         buffer = [];
       }
+      // sleep for 1 ms. (limit writes to 1000 per second)
+      await new Promise((resolve) => setTimeout(resolve, 1));
     } catch (error) {
       console.error("Error processing row", error);
       throw error;
@@ -203,9 +205,6 @@ async function processVoterFile(fileName: string, state: string) {
         `VoterFile ETL Success. Loaded: ${modelName}. Database Count: ${dbCount}, File Count: ${voterFile.Lines}`
       );
     }
-
-    // sleep for 2 minutes. (for debugging)
-    await new Promise((resolve) => setTimeout(resolve, 120000));
 
     // update the voter file to indicate that it has been loaded.
     await prisma.voterFile.update({
