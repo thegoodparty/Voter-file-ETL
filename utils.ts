@@ -95,14 +95,11 @@ export async function sendSlackMessage(message: string): Promise<void> {
     const token = process.env.SLACK_DEV_CHANNEL_TOKEN;
     const slackChannelId = process.env.SLACK_DEV_CHANNEL_ID;
 
-    console.log(`slackAppId: ${slackAppId}. slackChannelId: ${slackChannelId}`);
-
     if (!slackChannelId || !slackAppId || !token) {
       throw new Error("Missing Env Variables");
     }
 
-    let formattedMessage: string = JSON.stringify({
-      text: "ETL error message",
+    let formattedMessage = {
       blocks: [
         {
           type: "section",
@@ -112,7 +109,7 @@ export async function sendSlackMessage(message: string): Promise<void> {
           },
         },
       ],
-    });
+    };
 
     const options = {
       uri: `https://hooks.slack.com/services/${slackAppId}/${slackChannelId}/${token}`,
