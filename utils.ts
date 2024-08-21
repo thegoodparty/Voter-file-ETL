@@ -72,7 +72,11 @@ export async function getModelFields(modelName: string) {
   const modelPath = join(__dirname, `prisma/schema/${modelName}.prisma`);
   const modelSchema = readFileSync(modelPath, "utf-8");
   const prismaPath = join(__dirname, `prisma/schema/schema.prisma`);
-  const prismaSchema = readFileSync(prismaPath, "utf-8");
+  let prismaSchema = readFileSync(prismaPath, "utf-8");
+  prismaSchema = prismaSchema.replace(
+    'previewFeatures = ["prismaSchemaFolder"]',
+    ""
+  );
   const schema = prismaSchema + "\n\n" + modelSchema;
   const dmmf = await getDMMF({ datamodel: schema });
 
