@@ -71,7 +71,7 @@ export async function getModelFields(modelName: string) {
   // get the field names and types for the model from the prisma schema.
   const modelPath = join(__dirname, `prisma/schema/${modelName}.prisma`);
   const modelSchema = readFileSync(modelPath, "utf-8");
-  const prismaPath = join(__dirname, `prisma/schema.prisma`);
+  const prismaPath = join(__dirname, `prisma/schema/schema.prisma`);
   const prismaSchema = readFileSync(prismaPath, "utf-8");
   const schema = prismaSchema + "\n\n" + modelSchema;
   const dmmf = await getDMMF({ datamodel: schema });
