@@ -44,9 +44,11 @@ async function main() {
 
   for (let fileNumber = 0; fileNumber < files.length; fileNumber++) {
     if (startFile && startFile > fileNumber) {
+      console.log(`skipping file number ${fileNumber}`);
       continue;
     }
     if (endFile && endFile > 0 && fileNumber > endFile) {
+      console.log(`ending at file number ${fileNumber}`);
       break;
     }
     try {

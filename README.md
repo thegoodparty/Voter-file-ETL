@@ -19,6 +19,15 @@ npm run load
 
 The downloads are tracked in the VoterFile model and their counts are verified after loading. Only newer files are loaded and appended to. Zip files are deleted and older files are also removed automatically. Any failed downloads are reported to slack.
 
+If you need to make any changes to the schema, you simply update the `Voter.prisma` schema
+and then Run the app to copy the schema to the state schemas:
+
+```
+npm run copy
+```
+
+Remember that changes to the schema will require you to run migrate and generate (see below).
+
 # Installation:
 
 Install dependencies:

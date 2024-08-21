@@ -3,6 +3,7 @@
   "license": "MIT",
   "scripts": {
     "load": "ts-node ./load.ts",
+    "copy": "ts-node ./copy.ts",
     "load-s3": "ts-node ./load-s3.ts",
     "download": "ts-node ./download.ts"
   },
