@@ -97,10 +97,7 @@ async function processVoterFile(fileName: string, state: string) {
   let buffer: any[] = [];
   let batchPromises: any[] = [];
   const modelName = `Voter${state}`;
-  // truncate disabled for now we will only append.
-  // await truncateTable(state);
 
-  // reset the counters.
   total = 0;
   success = 0;
   failed = 0;
@@ -115,20 +112,17 @@ async function processVoterFile(fileName: string, state: string) {
 
   const processStream = async (row: any) => {
     try {
-      if (resume && resume > 0) {
-        if (total < resume) {
-          total += 1;
-          if (total % 10000 === 0) {
-            console.log("skipping rows... total", total);
-          }
-          return;
+      if (resume && total < resume) {
+        total += 1;
+        if (total % 10000 === 0) {
+          console.log("skipping rows... total", total);
         }
+        return;
       }
 
       const keys = Object.keys(row);
       for (const key of keys) {
         if (row[key] === "" || row[key] === null || row[key] === undefined) {
-          // any fields with blank or null or undefined values should be removed
           delete row[key];
           continue;
         }
@@ -140,6 +134,7 @@ async function processVoterFile(fileName: string, state: string) {
           row[key] = new Date(row[key]);
         }
       }
+
       if (
         row.Residence_Addresses_Latitude &&
         row.Residence_Addresses_Longitude
@@ -151,17 +146,28 @@ async function processVoterFile(fileName: string, state: string) {
         );
         row["Residence_Addresses_GeoHash"] = geoHash;
       }
-      if (row?.City && row.City != "") {
+
+      if (row?.City && row.City !== "") {
         row.City = row.City.replace(" (EST.)", "");
       }
+
       buffer.push(row);
+
       if (buffer.length >= batchSize) {
         total += buffer.length;
-        batchPromises.push(processBatch(buffer.slice(), modelName));
+        const promise = processBatch(buffer.slice(), modelName);
+        batchPromises.push(promise);
+
+        // Limit the number of concurrent batch operations to avoid overloading
+        if (batchPromises.length >= 5) {
+          await Promise.all(batchPromises);
+          batchPromises = [];
+        }
+
         buffer = [];
       }
-      // sleep for 1 ms. (limit writes to 1000 per second)
-      await new Promise((resolve) => setTimeout(resolve, 1));
+
+      await new Promise((resolve) => setImmediate(resolve));
     } catch (error) {
       console.error("Error processing row", error);
       throw error;
@@ -198,7 +204,6 @@ async function processVoterFile(fileName: string, state: string) {
       await sendSlackMessage(
         `Error! VoterFile ETL. Model: ${modelName}. Database count does not match file count. Database: ${dbCount}, File: ${voterFile.Lines}`
       );
-      return;
     } else {
       console.log(
         `Database count matches file count. Database: ${dbCount}, File: ${voterFile.Lines}`
@@ -206,50 +211,37 @@ async function processVoterFile(fileName: string, state: string) {
       await sendSlackMessage(
         `VoterFile ETL Success. Loaded: ${modelName}. Database Count: ${dbCount}, File Count: ${voterFile.Lines}`
       );
-    }
 
-    // update the voter file to indicate that it has been loaded.
-    await prisma.voterFile.update({
-      where: {
-        Filename: fileName,
-      },
-      data: {
-        Loaded: true,
-      },
-    });
+      await prisma.voterFile.update({
+        where: {
+          Filename: fileName,
+        },
+        data: {
+          Loaded: true,
+        },
+      });
+    }
   };
 
   const pipelineAsync = promisify(pipeline);
-
   try {
     await pipelineAsync(
       fileStream,
       csv({
         separator: "\t",
-        mapHeaders: ({ header, index }) => {
-          if (modelFields[modelName].includes(header) === false) {
-            // remove any columns that are not in the schema
-            return null;
-          } else {
-            return header.trim();
-          }
+        mapHeaders: ({ header }) => {
+          return modelFields[modelName].includes(header) ? header.trim() : null;
         },
       }),
       async function* (source: any) {
-        try {
-          for await (const row of source) {
-            yield processStream(row);
-          }
-        } catch (error) {
-          console.error("Error processing file", error);
-          throw error;
+        for await (const row of source) {
+          await processStream(row);
         }
       }
     );
     await finishProcessing();
   } catch (error) {
     console.error("Error processing file", error);
-    // console.error("Error processing file", error);
   }
 }
 
