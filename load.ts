@@ -105,8 +105,14 @@ async function processVoterFile(fileName: string, state: string) {
   const fileStream = fs.createReadStream(join(localDir, fileName));
 
   fileStream.on("error", (err) => {
-    console.error("Error reading file stream", err);
-    throw err; // Ensure the error is caught in the outer try-catch
+    console.error("Error reading file", err);
+    fileStream.destroy(); // Ensure stream is closed on error
+    throw err;
+  });
+
+  fileStream.on("end", () => {
+    console.log(`Finished reading file ${fileName}`);
+    fileStream.destroy(); // Explicitly close the stream
   });
 
   const { modelFields, fieldTypes } = await getModelFields(modelName);
@@ -250,6 +256,10 @@ async function processVoterFile(fileName: string, state: string) {
     await finishProcessing();
   } catch (error) {
     console.error("Error processing file", error);
+  } finally {
+    // Ensure the stream is destroyed even if there's an error
+    console.log("Destroying file stream");
+    fileStream.destroy();
   }
 }
 
@@ -263,6 +273,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 async function processBatch(rows: any[], modelName: string) {
   const modelLower = modelName.replace("Voter", "voter");
   console.log(`Writing ${rows.length} rows to ${modelLower}...`);
+  // We are closing the connection after each batch to avoid memory leaks
   try {
     // @ts-ignore
     await prisma[modelLower].createMany({
@@ -276,6 +287,9 @@ async function processBatch(rows: any[], modelName: string) {
   } catch (e) {
     failed += rows.length;
     console.log("Error in processBatch", e);
+  } finally {
+    console.log("Closing prisma connection...");
+    await prisma.$disconnect(); // Ensure the connection is closed
   }
 }
 
