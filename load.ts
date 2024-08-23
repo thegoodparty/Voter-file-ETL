@@ -192,8 +192,11 @@ async function processVoterFile(fileName: string, state: string) {
       return;
     }
 
+    let modelLower = modelName.replace("Voter", "voter");
+    modelLower = `${modelLower}temp`;
     // @ts-ignore
-    const dbCount = await prisma[modelName].count();
+    const dbCount = await prisma[modelLower].count();
+
     console.log("dbCount", dbCount);
     console.log("voterFile.Lines", voterFile.Lines);
 
@@ -212,6 +215,34 @@ async function processVoterFile(fileName: string, state: string) {
         `VoterFile ETL Success. Loaded: ${modelName}. Database Count: ${dbCount}, File Count: ${voterFile.Lines}`
       );
 
+      // First Rename the `public."${modelName}"` table to `public."${modelName}Old"`
+      const currentTableName = `public."${modelName}"`;
+      const oldTableName = `public."${modelName}Old"`;
+      const oldQuery = `ALTER TABLE ${currentTableName} RENAME TO ${oldTableName};`;
+      try {
+        await prisma.$executeRaw`${oldQuery}`;
+      } catch (error) {
+        console.error("Error renaming old table", error);
+        await sendSlackMessage(
+          `Error! VoterFile ETL. Error running query: ${oldQuery}.`
+        );
+        return;
+      }
+
+      // Next, Rename the `public."${modelName}Temp"` table to `public."${modelName}"`
+      const tempTableName = `public."${modelName}Temp"`;
+      const newTableName = `public."${modelName}"`;
+      const newQuery = `ALTER TABLE ${tempTableName} RENAME TO ${newTableName};`;
+      try {
+        await prisma.$executeRaw`${newQuery}`;
+      } catch (error) {
+        console.error("Error renaming new table", error);
+        await sendSlackMessage(
+          `Error! VoterFile ETL. Error running query: ${newQuery}.`
+        );
+        return;
+      }
+
       await prisma.voterFile.update({
         where: {
           Filename: fileName,
@@ -220,6 +251,20 @@ async function processVoterFile(fileName: string, state: string) {
           Loaded: true,
         },
       });
+
+      // Finally, drop the old table
+      const dropQuery = `DROP TABLE ${oldTableName};`;
+      try {
+        // await prisma.$executeRaw`${dropQuery}`;
+        await prisma.$executeRaw`SET LOCAL statement_timeout = '3600000';`; // Set timeout to 1 hour
+        await prisma.$executeRawUnsafe(dropQuery);
+      } catch (error) {
+        console.error("Error dropping old table", error);
+        await sendSlackMessage(
+          `Error! VoterFile ETL. Error running query: ${dropQuery}.`
+        );
+        return;
+      }
     }
   };
 
@@ -246,7 +291,8 @@ async function processVoterFile(fileName: string, state: string) {
 }
 
 async function processBatch(rows: any[], modelName: string) {
-  const modelLower = modelName.replace("Voter", "voter");
+  let modelLower = modelName.replace("Voter", "voter");
+  modelLower = `${modelLower}temp`;
   console.log(`Writing ${rows.length} rows to ${modelLower}...`);
   try {
     // @ts-ignore
