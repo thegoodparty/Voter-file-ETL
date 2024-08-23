@@ -105,12 +105,15 @@ async function processVoterFile(fileName: string, state: string) {
   const fileStream = fs.createReadStream(join(localDir, fileName));
 
   fileStream.on("error", (err) => {
-    console.error("Error reading file", err);
+    console.error("Error reading file stream", err);
+    throw err; // Ensure the error is caught in the outer try-catch
   });
 
   const { modelFields, fieldTypes } = await getModelFields(modelName);
 
-  const processStream = async (row: any) => {
+  async function processStream(row: any) {
+    const timeoutDuration = 30000; // Timeout after 30 seconds
+
     try {
       if (resume && total < resume) {
         total += 1;
@@ -155,7 +158,12 @@ async function processVoterFile(fileName: string, state: string) {
 
       if (buffer.length >= batchSize) {
         total += buffer.length;
-        const promise = processBatch(buffer.slice(), modelName);
+        // const promise = processBatch(buffer.slice(), modelName);
+        // batchPromises.push(promise);
+        const promise = withTimeout(
+          processBatch(buffer.slice(), modelName),
+          timeoutDuration
+        );
         batchPromises.push(promise);
 
         // Limit the number of concurrent batch operations to avoid overloading
@@ -169,10 +177,10 @@ async function processVoterFile(fileName: string, state: string) {
 
       await new Promise((resolve) => setImmediate(resolve));
     } catch (error) {
-      console.error("Error processing row", error);
-      throw error;
+      console.error("Error in processStream", error);
+      throw error; // Re-throw to propagate the error up the stack
     }
-  };
+  }
 
   const finishProcessing = async () => {
     if (buffer.length > 0) {
@@ -245,6 +253,13 @@ async function processVoterFile(fileName: string, state: string) {
   }
 }
 
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  const timeout = new Promise<never>((_, reject) =>
+    setTimeout(() => reject(new Error("Timeout exceeded")), ms)
+  );
+  return Promise.race([promise, timeout]);
+}
+
 async function processBatch(rows: any[], modelName: string) {
   const modelLower = modelName.replace("Voter", "voter");
   console.log(`Writing ${rows.length} rows to ${modelLower}...`);
@@ -255,13 +270,12 @@ async function processBatch(rows: any[], modelName: string) {
       skipDuplicates: true,
     });
     success += rows.length;
-    // console.log("success writing to db!", response);
     console.log(
       `[${modelName}] Total: ${total}, Success: ${success}, Failed: ${failed}`
     );
   } catch (e) {
     failed += rows.length;
-    console.log("error writing to db", e);
+    console.log("Error in processBatch", e);
   }
 }
 
@@ -270,6 +284,7 @@ main()
     await prisma.$disconnect();
   })
   .catch(async (e) => {
+    console.log("Error in main!");
     console.error(e);
     await prisma.$disconnect();
     process.exit(1);
