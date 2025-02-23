@@ -57,6 +57,9 @@ async function main() {
         `processing file number ${fileNumber} filename ${files[fileNumber]}`
       );
       const state = file.split("--")[1];
+      if (file.includes("DEMOGRAPHIC")) {
+        continue;
+      }
 
       const loaded = await prisma.voterFile.findUnique({
         where: {
