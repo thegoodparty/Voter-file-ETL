@@ -292,7 +292,9 @@ async function processVoterFile(fileName: string, state: string) {
       csv({
         separator: "\t",
         mapHeaders: ({ header }) => {
-          return modelFields[modelName].includes(header) ? header.trim() : null;
+          return modelFields[`${modelName}Temp`].includes(header)
+            ? header.trim()
+            : null;
         },
       }),
       async function* (source: any) {
