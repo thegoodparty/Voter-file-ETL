@@ -61,17 +61,18 @@ async function main() {
   for (const state of states) {
     const templatePath = join(__dirname, `prisma/Voter.prisma`);
     let template = readFileSync(templatePath, "utf-8");
-    let templateModel = template.replace(/model Voter/g, `model Voter${state}`);
+    // let templateModel = template.replace(/model Voter/g, `model Voter${state}`);
 
     // every state also must have a temporary table Voter${state}Temp
     let templateTemp = template.replace(
       /model Voter/g,
       `model Voter${state}Temp`
     );
-    const combinedTemplate = templateModel + "\n\n" + templateTemp;
+    // const combinedTemplate = templateModel + "\n\n" + templateTemp;
 
     const schemaPath = join(__dirname, `prisma/schema/Voter${state}.prisma`);
-    writeFileSync(schemaPath, combinedTemplate);
+    // writeFileSync(schemaPath, combinedTemplate);
+    writeFileSync(schemaPath, templateTemp);
   }
 }
 

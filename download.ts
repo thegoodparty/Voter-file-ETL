@@ -33,6 +33,7 @@ async function main() {
     const zipFiles: any = remoteFiles.filter((file: any) =>
       file.name.endsWith(".zip")
     );
+
     for (const file of zipFiles) {
       const remoteFilePath = path.join(remoteDir, file.name);
       const localFilePath = path.join(localDir, file.name);
