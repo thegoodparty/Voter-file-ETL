@@ -210,7 +210,7 @@ async function processVoterFile(fileName: string, state: string) {
     }
 
     let modelLower = modelName.replace("Voter", "voter");
-    modelLower = `${modelLower}temp`;
+    // modelLower = `${modelLower}temp`;
     // @ts-ignore
     const dbCount = await prisma[modelLower].count();
 
