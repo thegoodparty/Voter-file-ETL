@@ -320,7 +320,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 
 async function processBatch(rows: any[], modelName: string) {
   let modelLower = modelName.replace("Voter", "voter");
-  modelLower = `${modelLower}temp`;
+  // modelLower = `${modelLower}temp`;
   console.log(`Writing ${rows.length} rows to ${modelLower}...`);
   // We are closing the connection after each batch to avoid memory leaks
   try {
