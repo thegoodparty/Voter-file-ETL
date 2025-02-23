@@ -70,7 +70,10 @@ async function main() {
     );
     // const combinedTemplate = templateModel + "\n\n" + templateTemp;
 
-    const schemaPath = join(__dirname, `prisma/schema/Voter${state}.prisma`);
+    const schemaPath = join(
+      __dirname,
+      `prisma/schema/Voter${state}Temp.prisma`
+    );
     // writeFileSync(schemaPath, combinedTemplate);
     writeFileSync(schemaPath, templateTemp);
   }
