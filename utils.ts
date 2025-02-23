@@ -85,7 +85,7 @@ export async function getModelFields(modelName: string) {
   let fieldTypes: { [modelName: string]: { [fieldName: string]: string } } = {};
 
   models.forEach((model) => {
-    if (model.name !== modelName) return;
+    if (model.name !== `${modelName}Temp`) return;
     modelFields[model.name] = model.fields.map((field) => field.name);
     fieldTypes[model.name] = model.fields.reduce((acc: any, field) => {
       acc[field.name] = field.type;
