@@ -242,10 +242,11 @@ async function processVoterFile(fileName: string, state: string) {
         await prisma.$executeRaw`${oldQuery}`;
       } catch (error) {
         console.error("Error renaming old table", error);
-        await sendSlackMessage(
-          `Error! VoterFile ETL. Error running query: ${oldQuery}.`
-        );
-        return;
+        // TODO: Put this back after the initial load of all states.
+        // await sendSlackMessage(
+        //   `Error! VoterFile ETL. Error running query: ${oldQuery}.`
+        // );
+        // return;
       }
 
       // Next, Rename the `public."${modelName}Temp"` table to `public."${modelName}"`
@@ -279,10 +280,11 @@ async function processVoterFile(fileName: string, state: string) {
         await prisma.$executeRawUnsafe(dropQuery);
       } catch (error) {
         console.error("Error dropping old table", error);
-        await sendSlackMessage(
-          `Error! VoterFile ETL. Error running query: ${dropQuery}.`
-        );
-        return;
+        // TODO: Put this back after the initial load of all states.
+        // await sendSlackMessage(
+        //   `Error! VoterFile ETL. Error running query: ${dropQuery}.`
+        // );
+        // return;
       }
     }
   };
