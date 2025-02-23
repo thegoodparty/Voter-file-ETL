@@ -99,7 +99,7 @@ async function truncateTable(state: string) {
 async function processVoterFile(fileName: string, state: string) {
   let buffer: any[] = [];
   let batchPromises: any[] = [];
-  const modelName = `Voter${state}`;
+  const modelName = `Voter${state}Temp`;
 
   total = 0;
   success = 0;

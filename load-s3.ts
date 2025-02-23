@@ -152,7 +152,7 @@ async function truncateTable(state: string) {
 async function processVoterFile(s3Key: string, state: string) {
   let buffer: any[] = [];
   let batchPromises: any[] = [];
-  const modelName = `Voter${state}`;
+  const modelName = `Voter${state}Temp`;
   // truncate the table before insert.
   // await truncateTable(state);
 
