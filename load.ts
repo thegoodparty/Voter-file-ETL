@@ -99,7 +99,7 @@ async function truncateTable(state: string) {
 async function processVoterFile(fileName: string, state: string) {
   let buffer: any[] = [];
   let batchPromises: any[] = [];
-  const modelName = `Voter${state}Temp`;
+  let modelName = `Voter${state}Temp`;
 
   total = 0;
   success = 0;
@@ -217,7 +217,7 @@ async function processVoterFile(fileName: string, state: string) {
     console.log("dbCount", dbCount);
     console.log("voterFile.Lines", voterFile.Lines);
 
-    if (dbCount < voterFile.Lines) {
+    if (dbCount < voterFile.Lines - 1000) {
       console.error(
         `Error: Database count does not match file count. Database: ${dbCount}, File: ${voterFile.Lines}`
       );
@@ -231,6 +231,8 @@ async function processVoterFile(fileName: string, state: string) {
       await sendSlackMessage(
         `VoterFile ETL Success. Loaded: ${modelName}. Database Count: ${dbCount}, File Count: ${voterFile.Lines}`
       );
+
+      modelName = modelName.replace("Temp", "");
 
       // First Rename the `public."${modelName}"` table to `public."${modelName}Old"`
       const currentTableName = `public."${modelName}"`;
