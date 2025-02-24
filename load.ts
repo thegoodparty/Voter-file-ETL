@@ -121,7 +121,7 @@ async function processVoterFile(fileName: string, state: string) {
   const { modelFields, fieldTypes } = await getModelFields(modelName);
 
   async function processStream(row: any) {
-    const timeoutDuration = 30000; // Timeout after 30 seconds
+    const timeoutDuration = 60000; // 60 seconds
 
     try {
       if (resume && total < resume) {
@@ -167,12 +167,14 @@ async function processVoterFile(fileName: string, state: string) {
 
       if (buffer.length >= batchSize) {
         total += buffer.length;
-        // const promise = processBatch(buffer.slice(), modelName);
-        // batchPromises.push(promise);
         const promise = withTimeout(
           processBatch(buffer.slice(), modelName),
           timeoutDuration
-        );
+        ).catch(async (error) => {
+          console.log("Batch processing timed out, retrying...");
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          return processBatch(buffer.slice(), modelName);
+        });
         batchPromises.push(promise);
 
         // Limit the number of concurrent batch operations to avoid overloading
@@ -187,7 +189,7 @@ async function processVoterFile(fileName: string, state: string) {
       await new Promise((resolve) => setImmediate(resolve));
     } catch (error) {
       console.error("Error in processStream", error);
-      throw error; // Re-throw to propagate the error up the stack
+      return;
     }
   }
 
@@ -324,12 +326,14 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 
 async function processBatch(rows: any[], modelName: string) {
   let modelLower = modelName.replace("Voter", "voter");
-  // modelLower = `${modelLower}temp`;
   console.log(`Writing ${rows.length} rows to ${modelLower}...`);
-  // We are closing the connection after each batch to avoid memory leaks
+
+  // Create a new PrismaClient instance for this batch
+  const batchPrisma = new PrismaClient();
+
   try {
     // @ts-ignore
-    await prisma[modelLower].createMany({
+    await batchPrisma[modelLower].createMany({
       data: rows,
       skipDuplicates: true,
     });
@@ -341,8 +345,8 @@ async function processBatch(rows: any[], modelName: string) {
     failed += rows.length;
     console.log("Error in processBatch", e);
   } finally {
-    console.log("Closing prisma connection...");
-    await prisma.$disconnect(); // Ensure the connection is closed
+    // Always disconnect this batch's client
+    await batchPrisma.$disconnect();
   }
 }
 
