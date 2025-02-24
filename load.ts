@@ -129,8 +129,6 @@ async function processVoterFile(fileName: string, state: string) {
   const { modelFields, fieldTypes } = await getModelFields(modelName);
 
   async function processStream(row: any) {
-    const timeoutDuration = 60000; // 60 seconds
-
     try {
       if (resume && total < resume) {
         total += 1;
@@ -140,40 +138,25 @@ async function processVoterFile(fileName: string, state: string) {
         return;
       }
 
-      // Process the row data
+      // CRITICAL CHANGE: Don't store processed rows in memory
+      // Instead of building up a buffer, process immediately in smaller chunks
+      total += 1;
       const processedRow = processRowData(row, fieldTypes[modelName]);
-      buffer.push(processedRow);
 
-      if (buffer.length >= batchSize) {
-        total += buffer.length;
-        const currentBatch = buffer.slice();
-        buffer = []; // Clear buffer immediately
-
-        const promise = withTimeout(
-          processBatch(currentBatch, modelName),
-          timeoutDuration
-        ).catch(async (error) => {
-          console.log("Batch processing timed out, retrying...");
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-          return processBatch(currentBatch, modelName);
-        });
-        batchPromises.push(promise);
-
-        // Process fewer batches concurrently
-        if (batchPromises.length >= 5) {
-          await Promise.all(batchPromises);
-          batchPromises = [];
-
-          // Force garbage collection if available
-          if (global.gc) {
-            global.gc();
-          }
+      // Process one row at a time or very small batches
+      if (total % 100 === 0) {
+        // Process every 100 rows
+        await processBatch([processedRow], modelName);
+      } else {
+        buffer.push(processedRow);
+        if (buffer.length >= 100) {
+          await processBatch(buffer, modelName);
+          buffer = []; // Clear the buffer immediately
         }
       }
 
-      // Use setImmediate to prevent event loop blocking
       if (total % 10000 === 0) {
-        await new Promise((resolve) => setImmediate(resolve));
+        console.log(`Processed ${total} rows`);
       }
     } catch (error) {
       console.error("Error in processStream", error);
@@ -348,11 +331,8 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 
 async function processBatch(rows: any[], modelName: string) {
   let modelLower = modelName.replace("Voter", "voter");
-  console.log(`Writing ${rows.length} rows to ${modelLower}...`);
 
-  // Create a new PrismaClient instance for this batch
   const batchPrisma = new PrismaClient();
-
   try {
     // @ts-ignore
     await batchPrisma[modelLower].createMany({
@@ -360,14 +340,10 @@ async function processBatch(rows: any[], modelName: string) {
       skipDuplicates: true,
     });
     success += rows.length;
-    console.log(
-      `[${modelName}] Total: ${total}, Success: ${success}, Failed: ${failed}`
-    );
   } catch (e) {
     failed += rows.length;
-    console.log("Error in processBatch", e);
+    console.error("Error in processBatch", e);
   } finally {
-    // Always disconnect this batch's client
     await batchPrisma.$disconnect();
   }
 }
