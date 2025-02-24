@@ -160,7 +160,7 @@ async function processVoterFile(fileName: string, state: string) {
         batchPromises.push(promise);
 
         // Process fewer batches concurrently
-        if (batchPromises.length >= 3) {
+        if (batchPromises.length >= 5) {
           await Promise.all(batchPromises);
           batchPromises = [];
 
@@ -190,11 +190,12 @@ async function processVoterFile(fileName: string, state: string) {
         continue;
       }
 
-      if (fieldTypes[modelName][key] === "Int") {
-        processedRow[key] = Number(row[key]);
-      }
-      if (fieldTypes[modelName][key] === "DateTime") {
-        processedRow[key] = new Date(row[key]);
+      if (fieldTypes[key] === "Int") {
+        processedRow[key] = Number(value);
+      } else if (fieldTypes[key] === "DateTime") {
+        processedRow[key] = new Date(value as string);
+      } else {
+        processedRow[key] = value;
       }
     }
 
