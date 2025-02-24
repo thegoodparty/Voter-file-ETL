@@ -5,7 +5,7 @@ import { join } from "path";
 import { getLocalFiles, getModelFields, sendSlackMessage } from "./utils";
 import csv from "csv-parser";
 import dotenv from "dotenv";
-import geohash from "ngeohash";
+// import geohash from "ngeohash";
 import fs from "fs";
 import minimist from "minimist";
 
@@ -39,6 +39,10 @@ async function main() {
   if (args?.batchSize) {
     batchSize = parseInt(args.batch);
     console.log("batch size", batchSize);
+  }
+
+  if (args?.gc) {
+    console.log("Garbage collection enabled");
   }
 
   // Seed the database with the voter files
@@ -136,65 +140,78 @@ async function processVoterFile(fileName: string, state: string) {
         return;
       }
 
-      const keys = Object.keys(row);
-      for (const key of keys) {
-        if (row[key] === "" || row[key] === null || row[key] === undefined) {
-          delete row[key];
-          continue;
-        }
-
-        if (fieldTypes[modelName][key] === "Int") {
-          row[key] = Number(row[key]);
-        }
-        if (fieldTypes[modelName][key] === "DateTime") {
-          row[key] = new Date(row[key]);
-        }
-      }
-
-      if (
-        row.Residence_Addresses_Latitude &&
-        row.Residence_Addresses_Longitude
-      ) {
-        const geoHash = geohash.encode(
-          row.Residence_Addresses_Latitude,
-          row.Residence_Addresses_Longitude,
-          8
-        );
-        row["Residence_Addresses_GeoHash"] = geoHash;
-      }
-
-      if (row?.City && row.City !== "") {
-        row.City = row.City.replace(" (EST.)", "");
-      }
-
-      buffer.push(row);
+      // Process the row data
+      const processedRow = processRowData(row, fieldTypes[modelName]);
+      buffer.push(processedRow);
 
       if (buffer.length >= batchSize) {
         total += buffer.length;
+        const currentBatch = buffer.slice();
+        buffer = []; // Clear buffer immediately
+
         const promise = withTimeout(
-          processBatch(buffer.slice(), modelName),
+          processBatch(currentBatch, modelName),
           timeoutDuration
         ).catch(async (error) => {
           console.log("Batch processing timed out, retrying...");
           await new Promise((resolve) => setTimeout(resolve, 1000));
-          return processBatch(buffer.slice(), modelName);
+          return processBatch(currentBatch, modelName);
         });
         batchPromises.push(promise);
 
-        // Limit the number of concurrent batch operations to avoid overloading
-        if (batchPromises.length >= 5) {
+        // Process fewer batches concurrently
+        if (batchPromises.length >= 3) {
           await Promise.all(batchPromises);
           batchPromises = [];
-        }
 
-        buffer = [];
+          // Force garbage collection if available
+          if (global.gc) {
+            global.gc();
+          }
+        }
       }
 
-      await new Promise((resolve) => setImmediate(resolve));
+      // Use setImmediate to prevent event loop blocking
+      if (total % 10000 === 0) {
+        await new Promise((resolve) => setImmediate(resolve));
+      }
     } catch (error) {
       console.error("Error in processStream", error);
       return;
     }
+  }
+
+  // Separate row processing logic
+  function processRowData(row: any, fieldTypes: any) {
+    const processedRow: any = {};
+
+    for (const [key, value] of Object.entries(row)) {
+      if (value === "" || value === null || value === undefined) {
+        continue;
+      }
+
+      if (fieldTypes[modelName][key] === "Int") {
+        processedRow[key] = Number(row[key]);
+      }
+      if (fieldTypes[modelName][key] === "DateTime") {
+        processedRow[key] = new Date(row[key]);
+      }
+    }
+
+    // Disable geo-hashing for now as it may be causing memory leaks
+    // if (row.Residence_Addresses_Latitude && row.Residence_Addresses_Longitude) {
+    //   processedRow["Residence_Addresses_GeoHash"] = geohash.encode(
+    //     row.Residence_Addresses_Latitude,
+    //     row.Residence_Addresses_Longitude,
+    //     8
+    //   );
+    // }
+
+    if (row?.City && row.City !== "") {
+      processedRow.City = row.City.replace(" (EST.)", "");
+    }
+
+    return processedRow;
   }
 
   const finishProcessing = async () => {
