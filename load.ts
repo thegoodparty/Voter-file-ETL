@@ -113,6 +113,16 @@ async function processVoterFile(fileName: string, state: string) {
   // Define modelName here
   let modelName = `Voter${state}Temp`;
 
+  // Add memory logging
+  const logMemory = (label: string) => {
+    const used = process.memoryUsage();
+    console.log(
+      `Memory [${label}]: ${Math.round(used.heapUsed / 1024 / 1024)}MB`
+    );
+  };
+
+  logMemory("Start of file");
+
   const fileStream = fs.createReadStream(join(localDir, fileName), {
     highWaterMark: 1024 * 1024, // 1MB chunks
   });
@@ -136,33 +146,25 @@ async function processVoterFile(fileName: string, state: string) {
         total += 1;
         if (total % 10000 === 0) {
           console.log("skipping rows... total", total);
+          logMemory("During skip");
         }
         return;
       }
 
-      // CRITICAL CHANGE: Process in very small batches
       total += 1;
       const processedRow = processRowData(row, fieldTypes[modelName]);
       buffer.push(processedRow);
 
-      // Process every 25 rows instead of 100
-      if (buffer.length >= 25) {
-        const currentBatch = buffer;
-        buffer = []; // Clear buffer immediately
-        await processBatch(currentBatch, modelName);
-
-        // Add small delay every 1000 rows to allow GC to work
-        if (total % 1000 === 0) {
-          await new Promise((resolve) => setTimeout(resolve, 100));
-        }
+      if (buffer.length >= batchSize) {
+        logMemory("Before batch process");
+        await processBatch(buffer, modelName);
+        buffer = [];
+        logMemory("After batch process");
       }
 
       if (total % 10000 === 0) {
-        console.log(
-          `Processed ${total} rows, memory usage: ${Math.round(
-            process.memoryUsage().heapUsed / 1024 / 1024
-          )}MB`
-        );
+        console.log(`Processed ${total} rows`);
+        logMemory("Regular interval");
       }
     } catch (error) {
       console.error("Error in processStream", error);
