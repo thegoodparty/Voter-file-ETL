@@ -106,24 +106,24 @@ async function truncateTable(state: string) {
 
 async function processVoterFile(fileName: string, state: string) {
   let buffer: any[] = [];
-  let batchPromises: any[] = [];
-  let modelName = `Voter${state}Temp`;
-
   total = 0;
   success = 0;
   failed = 0;
+
+  // Define modelName here
+  let modelName = `Voter${state}Temp`;
 
   const fileStream = fs.createReadStream(join(localDir, fileName));
 
   fileStream.on("error", (err) => {
     console.error("Error reading file", err);
-    fileStream.destroy(); // Ensure stream is closed on error
+    fileStream.destroy();
     throw err;
   });
 
   fileStream.on("end", () => {
     console.log(`Finished reading file ${fileName}`);
-    fileStream.destroy(); // Explicitly close the stream
+    fileStream.destroy();
   });
 
   const { modelFields, fieldTypes } = await getModelFields(modelName);
@@ -139,7 +139,6 @@ async function processVoterFile(fileName: string, state: string) {
       }
 
       // CRITICAL CHANGE: Don't store processed rows in memory
-      // Instead of building up a buffer, process immediately in smaller chunks
       total += 1;
       const processedRow = processRowData(row, fieldTypes[modelName]);
 
@@ -200,9 +199,8 @@ async function processVoterFile(fileName: string, state: string) {
 
   const finishProcessing = async () => {
     if (buffer.length > 0) {
-      batchPromises.push(processBatch(buffer, modelName));
+      await processBatch(buffer, modelName);
     }
-    await Promise.all(batchPromises);
     console.log("CSV file successfully processed");
 
     const voterFile = await prisma.voterFile.findUnique({
@@ -312,11 +310,16 @@ async function processVoterFile(fileName: string, state: string) {
         }
       }
     );
+
+    // Process any remaining rows in the buffer
+    if (buffer.length > 0) {
+      await processBatch(buffer, modelName);
+    }
+
     await finishProcessing();
   } catch (error) {
     console.error("Error processing file", error);
   } finally {
-    // Ensure the stream is destroyed even if there's an error
     console.log("Destroying file stream");
     fileStream.destroy();
   }
