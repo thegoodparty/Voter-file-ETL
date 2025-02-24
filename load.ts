@@ -26,15 +26,19 @@ async function main() {
 
   if (args?.start) {
     startFile = parseInt(args.start);
+    console.log("starting at file", startFile);
   }
   if (args?.end) {
     endFile = parseInt(args.end);
+    console.log("ending at file", endFile);
   }
   if (args?.resume) {
     resume = parseInt(args.resume);
+    console.log("resuming from file", resume);
   }
   if (args?.batchSize) {
     batchSize = parseInt(args.batch);
+    console.log("batch size", batchSize);
   }
 
   // Seed the database with the voter files
