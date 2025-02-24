@@ -23,6 +23,7 @@ const prismaPool: PrismaClient[] = Array(5)
   .fill(null)
   .map(() => new PrismaClient());
 let currentPrismaIndex = 0;
+let batchPromises: Promise<void>[] = [];
 
 function processRowData(row: any, fieldTypes: any) {
   const processedRow: any = {};
@@ -183,9 +184,19 @@ async function processVoterFile(fileName: string, state: string) {
         buffer.push(processedRow);
 
         if (buffer.length >= batchSize) {
+          const currentBatch = buffer.slice();
+          buffer = []; // Clear buffer immediately
           logMemory("Before batch process");
-          await processBatch(buffer, modelName);
-          buffer = [];
+
+          const promise = processBatch(currentBatch, modelName);
+          batchPromises.push(promise);
+
+          // Wait if we have 5 batches in progress
+          if (batchPromises.length >= 5) {
+            await Promise.all(batchPromises);
+            batchPromises = [];
+          }
+
           logMemory("After batch process");
         }
 
