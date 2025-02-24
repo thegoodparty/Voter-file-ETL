@@ -113,7 +113,9 @@ async function processVoterFile(fileName: string, state: string) {
   // Define modelName here
   let modelName = `Voter${state}Temp`;
 
-  const fileStream = fs.createReadStream(join(localDir, fileName));
+  const fileStream = fs.createReadStream(join(localDir, fileName), {
+    highWaterMark: 1024 * 1024, // 1MB chunks
+  });
 
   fileStream.on("error", (err) => {
     console.error("Error reading file", err);
@@ -138,24 +140,29 @@ async function processVoterFile(fileName: string, state: string) {
         return;
       }
 
-      // CRITICAL CHANGE: Don't store processed rows in memory
+      // CRITICAL CHANGE: Process in very small batches
       total += 1;
       const processedRow = processRowData(row, fieldTypes[modelName]);
+      buffer.push(processedRow);
 
-      // Process one row at a time or very small batches
-      if (total % 100 === 0) {
-        // Process every 100 rows
-        await processBatch([processedRow], modelName);
-      } else {
-        buffer.push(processedRow);
-        if (buffer.length >= 100) {
-          await processBatch(buffer, modelName);
-          buffer = []; // Clear the buffer immediately
+      // Process every 25 rows instead of 100
+      if (buffer.length >= 25) {
+        const currentBatch = buffer;
+        buffer = []; // Clear buffer immediately
+        await processBatch(currentBatch, modelName);
+
+        // Add small delay every 1000 rows to allow GC to work
+        if (total % 1000 === 0) {
+          await new Promise((resolve) => setTimeout(resolve, 100));
         }
       }
 
       if (total % 10000 === 0) {
-        console.log(`Processed ${total} rows`);
+        console.log(
+          `Processed ${total} rows, memory usage: ${Math.round(
+            process.memoryUsage().heapUsed / 1024 / 1024
+          )}MB`
+        );
       }
     } catch (error) {
       console.error("Error in processStream", error);
@@ -303,10 +310,13 @@ async function processVoterFile(fileName: string, state: string) {
         mapHeaders: ({ header }) => {
           return modelFields[modelName].includes(header) ? header.trim() : null;
         },
+        strict: true,
       }),
       async function* (source: any) {
         for await (const row of source) {
           await processStream(row);
+          // Add yield to ensure proper backpressure
+          yield;
         }
       }
     );
@@ -314,6 +324,7 @@ async function processVoterFile(fileName: string, state: string) {
     // Process any remaining rows in the buffer
     if (buffer.length > 0) {
       await processBatch(buffer, modelName);
+      buffer = [];
     }
 
     await finishProcessing();
