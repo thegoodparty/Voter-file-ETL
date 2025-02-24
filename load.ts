@@ -147,7 +147,7 @@ async function processVoterFile(fileName: string, state: string) {
     );
   };
 
-  logMemory("Start of file");
+  // logMemory('Start of file');
 
   const fileStream = fs.createReadStream(join(localDir, fileName), {
     highWaterMark: 1024 * 1024, // 1MB chunks
@@ -173,7 +173,7 @@ async function processVoterFile(fileName: string, state: string) {
           total += 1;
           if (total % 10000 === 0) {
             console.log("skipping rows... total", total);
-            logMemory("During skip");
+            // logMemory('During skip');
           }
           callback();
           return;
@@ -186,7 +186,7 @@ async function processVoterFile(fileName: string, state: string) {
         if (buffer.length >= batchSize) {
           const currentBatch = buffer.slice();
           buffer = []; // Clear buffer immediately
-          logMemory("Before batch process");
+          // logMemory('Before batch process');
 
           const promise = processBatch(currentBatch, modelName);
           batchPromises.push(promise);
@@ -197,12 +197,12 @@ async function processVoterFile(fileName: string, state: string) {
             batchPromises = [];
           }
 
-          logMemory("After batch process");
+          // logMemory('After batch process');
         }
 
         if (total % 10000 === 0) {
           console.log(`Processed ${total} rows`);
-          logMemory("Regular interval");
+          // logMemory('Regular interval');
         }
 
         callback();
