@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 // import geohash from "ngeohash";
 import fs from "fs";
 import minimist from "minimist";
+import { Transform } from "stream";
 
 dotenv.config();
 
@@ -22,6 +23,26 @@ const prismaPool: PrismaClient[] = Array(5)
   .fill(null)
   .map(() => new PrismaClient());
 let currentPrismaIndex = 0;
+
+function processRowData(row: any, fieldTypes: any) {
+  const processedRow: any = {};
+
+  for (const [key, value] of Object.entries(row)) {
+    if (value === "" || value === null || value === undefined) {
+      continue;
+    }
+
+    if (fieldTypes[key] === "Int") {
+      processedRow[key] = Number(value);
+    } else if (fieldTypes[key] === "DateTime") {
+      processedRow[key] = new Date(value as string);
+    } else {
+      processedRow[key] = value;
+    }
+  }
+
+  return processedRow;
+}
 
 async function main() {
   const args = minimist(process.argv.slice(2));
@@ -131,84 +152,54 @@ async function processVoterFile(fileName: string, state: string) {
     highWaterMark: 1024 * 1024, // 1MB chunks
   });
 
-  fileStream.on("error", (err) => {
-    console.error("Error reading file", err);
-    fileStream.destroy();
-    throw err;
-  });
-
-  fileStream.on("end", () => {
-    console.log(`Finished reading file ${fileName}`);
-    fileStream.destroy();
-  });
-
   const { modelFields, fieldTypes } = await getModelFields(modelName);
 
-  async function processStream(row: any) {
-    try {
-      if (resume && total < resume) {
-        total += 1;
-        if (total % 10000 === 0) {
-          console.log("skipping rows... total", total);
-          logMemory("During skip");
+  // Create a transform stream to handle the CSV parsing
+  const parser = csv({
+    separator: "\t",
+    mapHeaders: ({ header }) => {
+      return modelFields[modelName].includes(header) ? header.trim() : null;
+    },
+    strict: true,
+  });
+
+  // Create a transform stream to handle row processing
+  const processor = new Transform({
+    objectMode: true,
+    transform: async function (row, encoding, callback) {
+      try {
+        if (resume && total < resume) {
+          total += 1;
+          if (total % 10000 === 0) {
+            console.log("skipping rows... total", total);
+            logMemory("During skip");
+          }
+          callback();
+          return;
         }
-        return;
+
+        total += 1;
+        const processedRow = processRowData(row, fieldTypes[modelName]);
+        buffer.push(processedRow);
+
+        if (buffer.length >= batchSize) {
+          logMemory("Before batch process");
+          await processBatch(buffer, modelName);
+          buffer = [];
+          logMemory("After batch process");
+        }
+
+        if (total % 10000 === 0) {
+          console.log(`Processed ${total} rows`);
+          logMemory("Regular interval");
+        }
+
+        callback();
+      } catch (error) {
+        callback(error as Error);
       }
-
-      total += 1;
-      const processedRow = processRowData(row, fieldTypes[modelName]);
-      buffer.push(processedRow);
-
-      if (buffer.length >= batchSize) {
-        logMemory("Before batch process");
-        await processBatch(buffer, modelName);
-        buffer = [];
-        logMemory("After batch process");
-      }
-
-      if (total % 10000 === 0) {
-        console.log(`Processed ${total} rows`);
-        logMemory("Regular interval");
-      }
-    } catch (error) {
-      console.error("Error in processStream", error);
-      return;
-    }
-  }
-
-  // Separate row processing logic
-  function processRowData(row: any, fieldTypes: any) {
-    const processedRow: any = {};
-
-    for (const [key, value] of Object.entries(row)) {
-      if (value === "" || value === null || value === undefined) {
-        continue;
-      }
-
-      if (fieldTypes[key] === "Int") {
-        processedRow[key] = Number(value);
-      } else if (fieldTypes[key] === "DateTime") {
-        processedRow[key] = new Date(value as string);
-      } else {
-        processedRow[key] = value;
-      }
-    }
-
-    // Disable geo-hashing for now as it may be causing memory leaks
-    // if (row.Residence_Addresses_Latitude && row.Residence_Addresses_Longitude) {
-    //   processedRow["Residence_Addresses_GeoHash"] = geohash.encode(
-    //     row.Residence_Addresses_Latitude,
-    //     row.Residence_Addresses_Longitude,
-    //     8
-    //   );
-    // }
-
-    if (row?.City && row.City !== "") {
-      processedRow.City = row.City.replace(" (EST.)", "");
-    }
-
-    return processedRow;
-  }
+    },
+  });
 
   const finishProcessing = async () => {
     if (buffer.length > 0) {
@@ -307,26 +298,19 @@ async function processVoterFile(fileName: string, state: string) {
     }
   };
 
-  const pipelineAsync = promisify(pipeline);
   try {
-    await pipelineAsync(
-      fileStream,
-      csv({
-        separator: "\t",
-        mapHeaders: ({ header }) => {
-          return modelFields[modelName].includes(header) ? header.trim() : null;
-        },
-        strict: true,
-      }),
-      async function* (source: any) {
-        for await (const row of source) {
-          await processStream(row);
-          yield;
-        }
-      }
-    );
+    await new Promise((resolve, reject) => {
+      fileStream
+        .pipe(parser)
+        .pipe(processor)
+        .on("finish", resolve)
+        .on("error", (error) => {
+          console.error("Stream error:", error);
+          reject(error);
+        });
+    });
 
-    // Process any remaining rows in the buffer
+    // Process any remaining rows
     if (buffer.length > 0) {
       await processBatch(buffer, modelName);
       buffer = [];
@@ -335,9 +319,11 @@ async function processVoterFile(fileName: string, state: string) {
     await finishProcessing();
   } catch (error) {
     console.error("Error processing file", error);
+    throw error;
   } finally {
-    console.log("Destroying file stream");
     fileStream.destroy();
+    parser.destroy();
+    processor.destroy();
   }
 }
 
