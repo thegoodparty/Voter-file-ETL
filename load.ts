@@ -18,6 +18,10 @@ let resume = 0; // for resuming a specific file.
 let batchSize = 1000;
 const localDir = process.env.LOCAL_DIRECTORY || "/";
 const prisma = new PrismaClient();
+const prismaPool: PrismaClient[] = Array(5)
+  .fill(null)
+  .map(() => new PrismaClient());
+let currentPrismaIndex = 0;
 
 async function main() {
   const args = minimist(process.argv.slice(2));
@@ -348,7 +352,10 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 async function processBatch(rows: any[], modelName: string) {
   let modelLower = modelName.replace("Voter", "voter");
 
-  const batchPrisma = new PrismaClient();
+  // Get next client from pool
+  const batchPrisma = prismaPool[currentPrismaIndex];
+  currentPrismaIndex = (currentPrismaIndex + 1) % prismaPool.length;
+
   try {
     // @ts-ignore
     await batchPrisma[modelLower].createMany({
@@ -359,18 +366,20 @@ async function processBatch(rows: any[], modelName: string) {
   } catch (e) {
     failed += rows.length;
     console.error("Error in processBatch", e);
-  } finally {
-    await batchPrisma.$disconnect();
   }
 }
 
 main()
   .then(async () => {
+    // Disconnect all clients in the pool
+    await Promise.all(prismaPool.map((client) => client.$disconnect()));
     await prisma.$disconnect();
   })
   .catch(async (e) => {
     console.log("Error in main!");
     console.error(e);
+    // Disconnect all clients in the pool
+    await Promise.all(prismaPool.map((client) => client.$disconnect()));
     await prisma.$disconnect();
     process.exit(1);
   });
