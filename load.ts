@@ -321,7 +321,6 @@ async function processVoterFile(fileName: string, state: string) {
       async function* (source: any) {
         for await (const row of source) {
           await processStream(row);
-          // Add yield to ensure proper backpressure
           yield;
         }
       }
