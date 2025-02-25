@@ -255,8 +255,8 @@ async function processVoterFile(fileName: string, state: string) {
       modelName = modelName.replace("Temp", "");
 
       // First Rename the `public."${modelName}"` table to `public."${modelName}Old"`
-      const currentTableName = `public."${modelName}"`;
-      const oldTableName = `public."${modelName}Old"`;
+      const currentTableName = `"${modelName}"`;
+      const oldTableName = `"${modelName}Old"`;
       const oldQuery = `ALTER TABLE ${currentTableName} RENAME TO ${oldTableName};`;
       try {
         await prisma.$executeRaw`${oldQuery}`;
@@ -270,8 +270,8 @@ async function processVoterFile(fileName: string, state: string) {
       }
 
       // Next, Rename the `public."${modelName}Temp"` table to `public."${modelName}"`
-      const tempTableName = `public."${modelName}Temp"`;
-      const newTableName = `public."${modelName}"`;
+      const tempTableName = `"${modelName}Temp"`;
+      const newTableName = `"${modelName}"`;
       const newQuery = `ALTER TABLE ${tempTableName} RENAME TO ${newTableName};`;
       try {
         await prisma.$executeRaw`${newQuery}`;
