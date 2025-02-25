@@ -345,8 +345,9 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
   return Promise.race([promise, timeout]);
 }
 
-async function processBatch(rows: any[], modelName: string) {
+async function processBatch(rows: any[], modelName: string, retryCount = 0) {
   let modelLower = modelName.replace("Voter", "voter");
+  const maxRetries = 3;
 
   // Get next client from pool
   const batchPrisma = prismaPool[currentPrismaIndex];
@@ -360,8 +361,18 @@ async function processBatch(rows: any[], modelName: string) {
     });
     success += rows.length;
   } catch (e) {
+    if (retryCount < maxRetries) {
+      console.log(
+        `Retrying batch of ${rows.length} rows. Attempt ${
+          retryCount + 1
+        } of ${maxRetries}`
+      );
+      // Wait a bit before retrying
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      return processBatch(rows, modelName, retryCount + 1);
+    }
     failed += rows.length;
-    console.error("Error in processBatch", e);
+    console.error(`Failed to process batch after ${maxRetries} attempts:`, e);
   }
 }
 
