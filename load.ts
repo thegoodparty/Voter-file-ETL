@@ -251,60 +251,60 @@ async function processVoterFile(fileName: string, state: string) {
       await sendSlackMessage(
         `VoterFile ETL Success. Loaded: ${modelName}. Database Count: ${dbCount}, File Count: ${voterFile.Lines}`
       );
+    }
 
-      modelName = modelName.replace("Temp", "");
+    modelName = modelName.replace("Temp", "");
 
-      // First Rename the `public."${modelName}"` table to `public."${modelName}Old"`
-      const currentTableName = `"${modelName}"`;
-      const oldTableName = `"${modelName}Old"`;
-      const oldQuery = `ALTER TABLE ${currentTableName} RENAME TO ${oldTableName};`;
-      try {
-        await prisma.$executeRawUnsafe(oldQuery);
-      } catch (error) {
-        console.error("Error renaming old table", error);
-        // TODO: Put this back after the initial load of all states.
-        // await sendSlackMessage(
-        //   `Error! VoterFile ETL. Error running query: ${oldQuery}.`
-        // );
-        // return;
-      }
+    // First Rename the `public."${modelName}"` table to `public."${modelName}Old"`
+    const currentTableName = `"${modelName}"`;
+    const oldTableName = `"${modelName}Old"`;
+    const oldQuery = `ALTER TABLE ${currentTableName} RENAME TO ${oldTableName};`;
+    try {
+      await prisma.$executeRawUnsafe(oldQuery);
+    } catch (error) {
+      console.error("Error renaming old table", error);
+      // TODO: Put this back after the initial load of all states.
+      // await sendSlackMessage(
+      //   `Error! VoterFile ETL. Error running query: ${oldQuery}.`
+      // );
+      // return;
+    }
 
-      // Next, Rename the `public."${modelName}Temp"` table to `public."${modelName}"`
-      const tempTableName = `"${modelName}Temp"`;
-      const newTableName = `"${modelName}"`;
-      const newQuery = `ALTER TABLE ${tempTableName} RENAME TO ${newTableName};`;
-      try {
-        await prisma.$executeRawUnsafe(newQuery);
-      } catch (error) {
-        console.error("Error renaming new table", error);
-        await sendSlackMessage(
-          `Error! VoterFile ETL. Error running query: ${newQuery}.`
-        );
-        return;
-      }
+    // Next, Rename the `public."${modelName}Temp"` table to `public."${modelName}"`
+    const tempTableName = `"${modelName}Temp"`;
+    const newTableName = `"${modelName}"`;
+    const newQuery = `ALTER TABLE ${tempTableName} RENAME TO ${newTableName};`;
+    try {
+      await prisma.$executeRawUnsafe(newQuery);
+    } catch (error) {
+      console.error("Error renaming new table", error);
+      await sendSlackMessage(
+        `Error! VoterFile ETL. Error running query: ${newQuery}.`
+      );
+      return;
+    }
 
-      await prisma.voterFile.update({
-        where: {
-          Filename: fileName,
-        },
-        data: {
-          Loaded: true,
-        },
-      });
+    await prisma.voterFile.update({
+      where: {
+        Filename: fileName,
+      },
+      data: {
+        Loaded: true,
+      },
+    });
 
-      // Finally, drop the old table
-      const dropQuery = `DROP TABLE ${oldTableName};`;
-      try {
-        await prisma.$executeRaw`SET LOCAL statement_timeout = '3600000';`; // Set timeout to 1 hour
-        await prisma.$executeRawUnsafe(dropQuery);
-      } catch (error) {
-        console.error("Error dropping old table", error);
-        // TODO: Put this back after the initial load of all states.
-        // await sendSlackMessage(
-        //   `Error! VoterFile ETL. Error running query: ${dropQuery}.`
-        // );
-        // return;
-      }
+    // Finally, drop the old table
+    const dropQuery = `DROP TABLE ${oldTableName};`;
+    try {
+      await prisma.$executeRaw`SET LOCAL statement_timeout = '3600000';`; // Set timeout to 1 hour
+      await prisma.$executeRawUnsafe(dropQuery);
+    } catch (error) {
+      console.error("Error dropping old table", error);
+      // TODO: Put this back after the initial load of all states.
+      // await sendSlackMessage(
+      //   `Error! VoterFile ETL. Error running query: ${dropQuery}.`
+      // );
+      // return;
     }
   };
 
