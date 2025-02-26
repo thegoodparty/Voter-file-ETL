@@ -259,7 +259,7 @@ async function processVoterFile(fileName: string, state: string) {
       const oldTableName = `"${modelName}Old"`;
       const oldQuery = `ALTER TABLE ${currentTableName} RENAME TO ${oldTableName};`;
       try {
-        await prisma.$executeRaw`${oldQuery}`;
+        await prisma.$executeRawUnsafe(oldQuery);
       } catch (error) {
         console.error("Error renaming old table", error);
         // TODO: Put this back after the initial load of all states.
@@ -274,7 +274,7 @@ async function processVoterFile(fileName: string, state: string) {
       const newTableName = `"${modelName}"`;
       const newQuery = `ALTER TABLE ${tempTableName} RENAME TO ${newTableName};`;
       try {
-        await prisma.$executeRaw`${newQuery}`;
+        await prisma.$executeRawUnsafe(newQuery);
       } catch (error) {
         console.error("Error renaming new table", error);
         await sendSlackMessage(
@@ -295,7 +295,6 @@ async function processVoterFile(fileName: string, state: string) {
       // Finally, drop the old table
       const dropQuery = `DROP TABLE ${oldTableName};`;
       try {
-        // await prisma.$executeRaw`${dropQuery}`;
         await prisma.$executeRaw`SET LOCAL statement_timeout = '3600000';`; // Set timeout to 1 hour
         await prisma.$executeRawUnsafe(dropQuery);
       } catch (error) {
