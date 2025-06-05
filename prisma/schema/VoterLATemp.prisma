@@ -81,6 +81,15 @@ model VoterLATemp {
   Voters_VotingPerformanceEvenYearPrimary String?  @db.Text()  // Voters_VotingPerformanceEvenYearPrimary
   Voters_VotingPerformanceEvenYearGeneralAndPrimary String?  @db.Text()  // Voters_VotingPerformanceEvenYearGeneralAndPrimary
   Voters_VotingPerformanceMinorElection String?  @db.Text()  // Voters_VotingPerformanceMinorElection
+  General_2026 String?  @db.Text()  // General_2026
+  Primary_2026 String?  @db.Text()  // Primary_2026
+  OtherElection_2026 String?  @db.Text()  // OtherElection_2026
+  AnyElection_2025 String?  @db.Text()  // AnyElection_2025
+  General_2024 String?  @db.Text()  // General_2024
+  Primary_2024 String?  @db.Text()  // Primary_2024
+  PresidentialPrimary_2024 String?  @db.Text()  // PresidentialPrimary_2024
+  OtherElection_2024 String?  @db.Text()  // OtherElection_2024
+  AnyElection_2023 String?  @db.Text()  // AnyElection_2023
   General_2022 String?  @db.Text()  // General_2022
   Primary_2022 String?  @db.Text()  // Primary_2022
   OtherElection_2022 String?  @db.Text()  // OtherElection_2022
