@@ -15,12 +15,12 @@ model VoterKY {
   Residence_Addresses_AddressLine  String?  @db.Text()  // 
   Residence_Addresses_ExtraAddressLine  String?  @db.Text()  // 
   Residence_Addresses_City  String?  @db.Text()  // 
-  Residence_Addresses_State  Int?  @db.Integer  // 
+  Residence_Addresses_State  String?  @db.Text()  // 
   Residence_Addresses_Zip  String?  @db.Text()  // 
   Residence_Addresses_ZipPlus4  String?  @db.Text()  // 
   Residence_Addresses_DPBC  String?  @db.Text()  // Residence_Addresses_DPBC
   Residence_Addresses_CheckDigit  Int?  @db.Integer  // Residence_Addresses_CheckDigit
-  Residence_Addresses_HouseNumber  Int?  @db.Integer  // 
+  Residence_Addresses_HouseNumber  String?  @db.Text()  // 
   Residence_Addresses_PrefixDirection  Int?  @db.Integer  // 
   Residence_Addresses_StreetName  String?  @db.Text()  // 
   Residence_Addresses_Designator  String?  @db.Text()  // 
@@ -38,7 +38,7 @@ model VoterKY {
   Mailing_Addresses_AddressLine  String?  @db.Text()  // 
   Mailing_Addresses_ExtraAddressLine  String?  @db.Text()  // 
   Mailing_Addresses_City  String?  @db.Text()  // 
-  Mailing_Addresses_State  Int?  @db.Integer  // 
+  Mailing_Addresses_State  String?  @db.Text()  // 
   Mailing_Addresses_Zip  String?  @db.Text()  // 
   Mailing_Addresses_ZipPlus4  String?  @db.Text()  // 
   Mailing_Addresses_DPBC  String?  @db.Text()  // Mailing_Addresses_DPBC
@@ -72,7 +72,7 @@ model VoterKY {
   AbsenteeTypes_Description  String?  @db.Text()  // Military, Long Term, In State, Out of State, Permanent Out of Country, Mail Precinct, Special, Temporary, Permanent U.S., Federal
   MilitaryStatus_Description  String?  @db.Text()  // Military,Veteran
   MaritalStatus_Description  String?  @db.Text()  // Married,Non-Traditional
-  Voters_MovedFrom_State  Int?  @db.Integer  // Voters_MovedFrom_State
+  Voters_MovedFrom_State  String?  @db.Text()  // Voters_MovedFrom_State
   Voters_MovedFrom_Date  DateTime?  @db.Date()  // Voters_MovedFrom_Date
   Voters_MovedFrom_Party_Description  String?  @db.Text()  // Voters_MovedFrom_Party
 
